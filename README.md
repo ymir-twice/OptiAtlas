@@ -11,7 +11,9 @@ project website has not been deployed. No paper acceptance or public release is 
 [Core migration archive](https://huggingface.co/datasets/hopeymir/CVPR2027) ·
 [Local project page](site/index.html)
 
-![Selected OptiAtlas-Agent pinhole projection example](site/assets/pinhole_05__ours_best.webp)
+[▶ Watch the 60-second project video](site/assets/LightOmni_Six_Cases_60s.mp4)
+
+[![60-second project demonstration](site/assets/demo-poster.jpg)](site/assets/LightOmni_Six_Cases_60s.mp4)
 
 ## What is included
 
