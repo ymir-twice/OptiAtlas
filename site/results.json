@@ -1,0 +1,111 @@
+{
+  "scope": "Recorded single-run V6.1 / Gemini results",
+  "metric_definitions": {
+    "precision": "A/(A+B)",
+    "recall": "Legacy name for judgability: (A+B)/(A+B+C)",
+    "pass_rate": "A/(A+B+C)"
+  },
+  "final_generator_state_sha256": "9ecae447a4c580742d1f33465ec6596a6a5d16eacaca77936905043e1580796f",
+  "rows": [
+    {
+      "id": "nano",
+      "label": "Nano Banana 2.1",
+      "A": 852,
+      "B": 133,
+      "C": 17,
+      "precision": 0.86497461928934,
+      "recall": 0.9830339321357285,
+      "pass_rate": 0.8502994011976048
+    },
+    {
+      "id": "ours_best",
+      "label": "OptiAtlas-Agent",
+      "A": 799,
+      "B": 193,
+      "C": 10,
+      "precision": 0.8054435483870968,
+      "recall": 0.9900199600798403,
+      "pass_rate": 0.7974051896207585
+    },
+    {
+      "id": "seedream",
+      "label": "Seedream 5.0 Pro",
+      "A": 750,
+      "B": 240,
+      "C": 12,
+      "precision": 0.7575757575757576,
+      "recall": 0.9880239520958084,
+      "pass_rate": 0.7485029940119761
+    },
+    {
+      "id": "qwen30",
+      "label": "Qwen-Image 3.0",
+      "A": 563,
+      "B": 416,
+      "C": 23,
+      "precision": 0.575076608784474,
+      "recall": 0.9770459081836327,
+      "pass_rate": 0.56187624750499
+    },
+    {
+      "id": "flux",
+      "label": "FLUX.2-dev",
+      "A": 531,
+      "B": 453,
+      "C": 18,
+      "precision": 0.5396341463414634,
+      "recall": 0.9820359281437125,
+      "pass_rate": 0.5299401197604791
+    },
+    {
+      "id": "qwen_base",
+      "label": "Qwen-Image-2.1",
+      "A": 527,
+      "B": 450,
+      "C": 25,
+      "precision": 0.5394063459570113,
+      "recall": 0.9750499001996008,
+      "pass_rate": 0.5259481037924152
+    },
+    {
+      "id": "sense",
+      "label": "SenseNova-U1.5",
+      "A": 520,
+      "B": 463,
+      "C": 19,
+      "precision": 0.5289928789420142,
+      "recall": 0.9810379241516967,
+      "pass_rate": 0.5189620758483033
+    },
+    {
+      "id": "grok",
+      "label": "Grok-2-image",
+      "A": 518,
+      "B": 465,
+      "C": 19,
+      "precision": 0.5269582909460834,
+      "recall": 0.9810379241516967,
+      "pass_rate": 0.5169660678642715
+    },
+    {
+      "id": "hunyuan",
+      "label": "HunyuanImage 3.0",
+      "A": 450,
+      "B": 534,
+      "C": 18,
+      "precision": 0.4573170731707317,
+      "recall": 0.9820359281437125,
+      "pass_rate": 0.4491017964071856
+    },
+    {
+      "id": "zimage",
+      "label": "Z-Image Turbo",
+      "A": 398,
+      "B": 567,
+      "C": 37,
+      "precision": 0.41243523316062175,
+      "recall": 0.9630738522954092,
+      "pass_rate": 0.3972055888223553
+    }
+  ]
+}

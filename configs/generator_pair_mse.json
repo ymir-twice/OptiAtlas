@@ -1,0 +1,150 @@
+{
+  "model": {
+    "name": "qwen_image21",
+    "model_path": "${paths.generator_base}",
+    "revision": null,
+    "transformer_path": null,
+    "lora_path": null,
+    "max_caption_tokens": 4096,
+    "gradient_checkpointing": true,
+    "text_encoder_offload": true,
+    "condition_cache_size": 512,
+    "vae_decode_batch_size": 1,
+    "sigma_sampling": "uniform",
+    "logit_mean": 0.0,
+    "logit_std": 1.0,
+    "resize_mode": "letterbox",
+    "max_crop_fraction": 0.1,
+    "local_files_only": true
+  },
+  "algorithm": {
+    "name": "diffusion_opsd",
+    "backend": "upstream"
+  },
+  "finetune": {
+    "mode": "lora",
+    "lora": {
+      "rank": 32,
+      "alpha": 64,
+      "dropout": 0
+    }
+  },
+  "reward": {
+    "name": "mse",
+    "kind": "negative_mse",
+    "reference_resize_mode": "letterbox",
+    "reference_exclude_padding": true,
+    "reference_max_crop_fraction": 0.1,
+    "reference_cache_size": 32,
+    "image_root": null,
+    "require_reference_sha256": true
+  },
+  "upstream": {
+    "data_epochs": 2,
+    "num_epochs": null,
+    "save_freq": 100,
+    "eval_freq": 0,
+    "seed": 42,
+    "debug": false,
+    "validation": {
+      "enabled": false,
+      "path": null,
+      "split": null,
+      "fraction": 0.05,
+      "max_items": 128,
+      "seed": 42
+    },
+    "overrides": {
+      "resolution": 512,
+      "sample": {
+        "guidance_scale": 4.0,
+        "train_guidance_scale": 4.0,
+        "num_image_per_prompt": 4,
+        "num_steps": 6,
+        "train_batch_size": 16,
+        "num_batches_per_epoch": 1,
+        "prompt_sampling": "epoch"
+      },
+      "train": {
+        "batch_size": 4,
+        "gradient_accumulation_steps": 4,
+        "num_inner_epochs": 1,
+        "optimizer": "adamw",
+        "learning_rate": 5e-06
+      },
+      "opsd": {
+        "opa_mb": 1,
+        "opa_rho": 0.02,
+        "reference_velocity_weight": 10,
+        "reference_source": "initial",
+        "reference_diagnostics_interval": 25,
+        "reward_diagnostics_interval": 25,
+        "reward_diagnostics_initial_updates": 3
+      },
+      "additional_checkpoint_steps": [
+        434,
+        868
+      ]
+    },
+    "reward_weights": {
+      "mse": 1.0
+    }
+  },
+  "task": "train",
+  "experiment_name": "qwen_image21_opsd",
+  "output_dir": "${paths.output}/pair_mse",
+  "resume": null,
+  "data": {
+    "path": "${paths.pair_train}",
+    "split": "train",
+    "max_pixels": 262144,
+    "hash_images": true
+  },
+  "evaluation": {
+    "enabled": false,
+    "path": null,
+    "split": "validation",
+    "samples_per_rank": 2,
+    "seed": 1729,
+    "sigmas": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "max_pixels": null
+  },
+  "training": {
+    "device": "cuda",
+    "precision": "bf16",
+    "seed": null,
+    "batch_size": null,
+    "condition_dropout": 0,
+    "num_epochs": null,
+    "max_steps": null,
+    "gradient_accumulation": null,
+    "max_grad_norm": 1.0,
+    "save_steps": null,
+    "save_each_epoch": true,
+    "export": true
+  },
+  "optimizer": null,
+  "distributed": {
+    "mode": "ddp",
+    "expected_world_size": 8
+  },
+  "logging": {
+    "progress_interval_seconds": 10,
+    "wandb": {
+      "enabled": false,
+      "project": "Draw-Align-SFT",
+      "name": null,
+      "mode": "offline"
+    }
+  },
+  "release_dataset": {
+    "variant": "agent",
+    "caption_field": "caption"
+  }
+}

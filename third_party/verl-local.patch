@@ -1,0 +1,169 @@
+--- a/verl/workers/engine/fsdp/transformer_impl.py
++++ b/verl/workers/engine/fsdp/transformer_impl.py
+@@ -103,6 +103,36 @@
+     return logits / temperature.clamp(min=1e-8).to(logits.dtype)
+ 
+ 
++def _prepare_fsdp2_lora_param_dtype(module):
++    """Keep optimizer-owned LoRA shards in FP32; frozen base weights stay unchanged.
++
++    FSDP2 permits frozen and trainable parameters with different original dtypes.
++    Its mixed-precision policy casts only the gathered compute tensors to BF16.
++    """
++    converted = 0
++    trainable_count = 0
++    frozen_dtypes = {}
++    for name, param in module.named_parameters():
++        if not param.requires_grad:
++            key = str(param.dtype)
++            frozen_dtypes[key] = frozen_dtypes.get(key, 0) + 1
++            continue
++        if not param.is_floating_point():
++            raise TypeError(f"FSDP2 LoRA trainable parameter must be floating point: {name}")
++        trainable_count += 1
++        if param.dtype != torch.float32:
++            param.data = param.data.to(torch.float32)
++            converted += 1
++    if not trainable_count:
++        raise ValueError("FSDP2 LoRA model has no trainable parameters")
++    logger.info(
++        "FSDP2 LoRA precision: trainable_tensors=%d trainable_dtype=torch.float32 "
++        "converted_tensors=%d frozen_dtype_counts=%s",
++        trainable_count, converted, frozen_dtypes,
++    )
++    return module
++
++
+ class FSDPEngine(BaseEngine):
+     """
+     Concrete Engine implementation using PyTorch FullyShardedDataParallel (FSDP).
+@@ -367,18 +397,25 @@
+             }
+             module = get_peft_model(module, LoraConfig(**lora_config))
+ 
+-            # FSDP requires all params in a flat group to share dtype: cast a
+-            # fp32 adapter to the bf16 base dtype only when they actually differ.
+-            base_dtype = next((p.dtype for p in module.parameters() if not p.requires_grad), None)
+-            if base_dtype is not None:
+-                mismatched = [p for p in module.parameters() if p.requires_grad and p.dtype != base_dtype]
+-                if mismatched:
+-                    logger.info(
+-                        f"Casting {len(mismatched)} LoRA adapter params from "
+-                        f"{mismatched[0].dtype} to {base_dtype} to match base."
+-                    )
+-                    for param in mismatched:
+-                        param.data = param.data.to(base_dtype)
++            # FSDP1 flat groups retain the existing uniform-dtype behavior.
++            # FSDP2 must retain FP32 optimizer-owned LoRA parameters instead.
++            if self.engine_config.strategy != "fsdp2":
++                # FSDP requires all params in a flat group to share dtype: cast a
++                # fp32 adapter to the bf16 base dtype only when they actually differ.
++                base_dtype = next((p.dtype for p in module.parameters() if not p.requires_grad), None)
++                if base_dtype is not None:
++                    mismatched = [p for p in module.parameters() if p.requires_grad and p.dtype != base_dtype]
++                    if mismatched:
++                        logger.info(
++                            f"Casting {len(mismatched)} LoRA adapter params from "
++                            f"{mismatched[0].dtype} to {base_dtype} to match base."
++                        )
++                        for param in mismatched:
++                            param.data = param.data.to(base_dtype)
++
++        # Also normalize pre-trained adapter loads, before FSDP2 shards them.
++        if self.engine_config.strategy == "fsdp2":
++            module = _prepare_fsdp2_lora_param_dtype(module)
+ 
+         return module
+ 
+--- a/verl/workers/rollout/vllm_rollout/bucketed_weight_transfer.py
++++ b/verl/workers/rollout/vllm_rollout/bucketed_weight_transfer.py
+@@ -24,7 +24,7 @@
+ 
+ import torch
+ import zmq
+-from torch.multiprocessing.reductions import reduce_tensor
++from torch.multiprocessing.reductions import rebuild_cuda_tensor, reduce_tensor
+ 
+ from verl.utils.device import get_device_id, get_device_name, get_torch_device, is_support_ipc
+ 
+@@ -40,9 +40,28 @@
+     handle: tuple
+ 
+ 
++async def _weight_iterator(weights):
++    """Accept sync/async weights without importing rollout servers or tokenizers."""
++    if hasattr(weights, "__aiter__"):
++        async for item in weights:
++            yield item
++    else:
++        for item in weights:
++            yield item
++
++
+ # copy from https://github.com/vllm-project/vllm/blob/main/examples/offline_inference/rlhf_utils.py
+ def rebuild_ipc(handle: tuple[Callable, tuple], device_id: int | None = None) -> torch.Tensor:
+     func, args = handle
++    # CPU tensors have a different reduction (only three arguments), and meta
++    # tensors have another layout. Neither is a CUDA IPC handle. Do not silently
++    # deserialize CPU weights or overwrite an unrelated argument as a device.
++    if func is not rebuild_cuda_tensor or len(args) != 15:
++        raise RuntimeError(
++            "Invalid CUDA IPC weight handle: expected rebuild_cuda_tensor with 15 arguments, "
++            f"got {getattr(func, '__name__', type(func).__name__)} with {len(args)}. "
++            "CPU-offloaded weights must be staged on the sender GPU before transfer."
++        )
+     list_args = list(args)
+     if device_id is not None:
+         # the key is to change device id to the current device id
+@@ -106,8 +125,6 @@
+         Args:
+             weights: Generator or async iterator yielding (name, tensor) pairs
+         """
+-        from verl.workers.rollout.utils import ensure_async_iterator
+-
+         try:
+             self._init_socket()
+             self._init_buffer()
+@@ -116,7 +133,7 @@
+             offset = 0
+             bucket_meta: dict[str, TensorMetadata] = {}
+             # dtype = PrecisionType.to_dtype(self.config.dtype)
+-            async for name, weight in ensure_async_iterator(weights):
++            async for name, weight in _weight_iterator(weights):
+                 # model parameters are in fp32 full precision
+                 # (vermouth1992) we should not force cast weight here because some parameters
+                 # (such as moe gate) have to keep fp32 precision. If a weight is bf16 in the rollout side,
+@@ -221,10 +238,22 @@
+         get_torch_device().empty_cache()
+ 
+     def _direct_send_large_weight(self, name: str, weight: torch.Tensor):
+-        """Send a weight larger than the bucket size via cuda ipc or share memory."""
+-        logger.debug(f"Direct sending large weight {name}({weight.shape}, {weight.dtype})")
++        """Stage an oversized weight on the sending GPU, then transfer via IPC."""
+         # TODO: support fallback to shared memory
+-        handle = reduce_tensor(weight)
++        # LoRA's first base sync exports ordinary CPU tensors. Small weights are
++        # copied into the CUDA bucket above, but oversized weights bypass it.
++        # Exporting their CPU reduction directly breaks the receiver's CUDA IPC
++        # protocol. Detach and move only this tensor, preserving dtype and shape.
++        # Keep the staged storage alive until recv() confirms the consumer is done.
++        if self.buffer is None or self.buffer.device.type != "cuda":
++            raise RuntimeError("CUDA IPC weight transfer requires a CUDA communication buffer")
++        logger.info(
++            "Direct weight transfer: name=%s shape=%s dtype=%s bytes=%s source=%s target=%s",
++            name, tuple(weight.shape), weight.dtype, weight.nbytes, weight.device, self.buffer.device,
++        )
++        staged_weight = weight.detach().to(device=self.buffer.device, non_blocking=True)
++        get_torch_device().synchronize()
++        handle = reduce_tensor(staged_weight)
+         bucket_meta: dict[str, TensorMetadata] = {}
+         bucket_meta[name] = {
+             "name": name,
+@@ -235,6 +264,7 @@
+         }
+         self.socket.send_pyobj({"bucket_meta": bucket_meta, "is_last": False})
+         self.socket.recv()
++        del staged_weight
+ 
+ 
+ class BucketedWeightReceiver:

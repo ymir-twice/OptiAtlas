@@ -1,0 +1,80 @@
+{
+  "task": "benchmark_launch",
+  "output_dir": "${paths.output}/evaluation_pair_fm_lr1e5",
+  "run_id": null,
+  "logging": {
+    "console": true,
+    "wandb": {
+      "enabled": false,
+      "mode": "offline",
+      "project": "light-omni",
+      "entity": null,
+      "name": null,
+      "group": null,
+      "tags": [],
+      "id": null,
+      "resume": "never"
+    }
+  },
+  "benchmark_launcher": {
+    "devices": [
+      0
+    ],
+    "python": "${runtime.generator_python}",
+    "dry_run": false,
+    "progress_interval": 10,
+    "preflight": false
+  },
+  "benchmark": {
+    "architecture": "qwen_draw_align",
+    "actor_checkpoint": "${paths.policy_sft_base}",
+    "prompts_file": "${paths.benchmark_prompts}",
+    "max_samples": null,
+    "shard_index": 0,
+    "num_shards": 1,
+    "execute": true,
+    "resume": true,
+    "retry_failed": false,
+    "max_consecutive_failures": 3,
+    "actor": {
+      "chat_completions_url": "${api.policy_base_url}/chat/completions",
+      "model": "OptiAtlas-RL95",
+      "api_key_env": "OPTIATLAS_POLICY_TOKEN",
+      "auth": "bearer",
+      "max_tokens": 8192,
+      "temperature": 0.0,
+      "enable_thinking": false
+    },
+    "research_tools": {
+      "enabled": false
+    },
+    "image": {
+      "provider": "draw_align_checkpoint",
+      "checkpoint_path": "${paths.generator_pair_fm_lr1e5}",
+      "device": "cuda:0",
+      "dtype": "bf16",
+      "size": "1024x1024",
+      "seed": 42,
+      "num_steps": 40,
+      "cfg_scale": 4.0,
+      "timestep_shift": 3.0,
+      "attn_backend": "sdpa",
+      "model_family": "qwen_image21",
+      "model_path": "${paths.generator_base}",
+      "expected_data_epochs": 2,
+      "release_export": true,
+      "state_sha256": "e8f387d0b4e2096d17295195d85d450b280fe90a9b5af5d0ca0a4b9f2e4f126f"
+    },
+    "budget": {
+      "expose_runtime_state": true,
+      "max_steps": 16,
+      "max_image_calls": 3,
+      "max_provider_calls": 24,
+      "max_reported_tokens": 150000,
+      "max_context_characters": 300000,
+      "max_seconds": 1800,
+      "request_timeout": 600
+    },
+    "actor_adapter": "${paths.policy_rl_adapter}"
+  }
+}

@@ -1,0 +1,47 @@
+Draw-Align-SFT vendors the complete DiffusionOPSD implementation and adapts its full
+SD3 training script at draw_align_sft/upstream/trainer.py:
+https://github.com/worldbench/DiffusionOPSD
+Pinned reference: 9c4c48cdfe5c3fa712d32957345d75fae9295696
+Upstream source identifies itself as an external implementation of the paper
+"On-Policy Self-Distillation in Diffusion Models", arXiv:2608.24646.
+Relevant source: scripts/train_opsd_ri_sd3.py, scripts/train_opsd_zimage.py,
+config/opsd_defaults.py. Its Apache License 2.0 is reproduced in LICENSE-DiffusionOPSD.
+See UPSTREAM_INTEGRATION.md and upstream_trainer.patch for the integration changes.
+The earlier compact mathematical adaptation remains for regression tests;
+it is no longer the default OPSD training backend.
+
+draw_align_sft/advanced adapts the same fixed vendor revision's FlowGRPO,
+DiffusionNFT and ReFL baselines and its opd/*_open3.py DanceOPD, DiffusionOPD
+and FlowOPD objectives to native Qwen-Image-2.1 / SenseNova adapters.
+These ports retain Apache-2.0 attribution. Model-specific noise coordinates,
+CFG-free execution, teacher validation, data epochs and checkpoint handling
+are local adaptations documented in docs/ADVANCED_ALGORITHMS.md.
+
+Qwen-Image-2.1 adapter interfaces and parameterization follow the pinned Diffusers
+implementation identified in requirements-qwen-image21.txt and the Qwen checkpoint
+configuration. Model weights retain their respective upstream licenses.
+
+SenseNova uses separately supplied model weights, which are not redistributed.
+The existing project's differentiable native training adapter is migrated here.
+environment/sensenova_u1_validated.tar.gz contains the native source snapshot
+used for the recorded validation runs, including its template resource. Its
+origin and file hashes are recorded in environment/sensenova_source_manifest.json;
+the upstream Apache License 2.0 is in environment/SENSENOVA-LICENSE.txt and the archive.
+Reference upstream: https://github.com/OpenSenseNova/SenseNova-U1
+
+draw_align_sft/optimizers.py adapts the Muon Newton-Schulz kernel and update
+rules from PyTorch v2.9.0 torch/optim/_muon.py (BSD license), derived from
+Keller Jordan's Muon (MIT license). The full notices and source hashes are
+in third_party/muon/. An unmodified PyTorch reference file is retained at
+tests/fixtures/muon_pytorch_v290.py for offline numerical parity tests.
+The local changes add factor-wise LoRA selection, auxiliary AdamW groups,
+checkpoint validation, and explicit rejection of unsupported FSDP sharding.
+
+draw_align_sft/rewards/hpsv2.py follows the HPSv2 v2.0 architecture, normalized
+image/text score and full-frame light-augmentation preprocessing described in
+tgxs002/HPSv2 at revision 866735ecaae999fa714bd9edfa05aa2672669ee3.
+Its Apache-2.0 license is reproduced in third_party/hpsv2/LICENSE. The local
+preprocessing is differentiable and corrects the max-side224 padding edge case;
+scoring uses a frozen FP32 encoder rather than the official CLI's CUDA AMP.
+Model resource hashes and the original scoring/transform sources are recorded
+by scripts/download_hpsv2_reward.py in models/rewards/hpsv2/provenance.json.

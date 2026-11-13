@@ -1,0 +1,16 @@
+{
+  "construction": "Final protocol with the explicitly named policy/generator replacement; stage and reward settings remain in the corresponding training recipe.",
+  "export_weights_sha256": {
+    "dense_raw": "1fe0c8df1e2c49cb6f9d4f9cc4fb31d4ac7264d563c74254fd6665c351a37340",
+    "pair_mse": "386816c31a8d69744cdc518c01da3d681849eca9da36b9ca1a80892d131ef738",
+    "pair_raw": "384f6a969a157a9a3466fede0218b51fbdb5e590c7664d535aa569b3f45332d8",
+    "pair_gn_dino": "e82fcaacd34070ee67e32413a3c194c239e1c15035dcf5b9e7048ccb9315ac8d",
+    "strict_dense": "66b8a7a1c3d5a41f1c143564ebf0d6f9eea76e104b9a4c45ef42ac05898bf5bc",
+    "strict_agent": "b5dce30b984a0497e76a66298be1a57ac81d99417ec55df8c14cefc6319ee0ec",
+    "dense_fm": "0011946081a706f9efabb3409daacf228d5eef917eec65428751daf765f6689c",
+    "pair_fm": "fccbc05126fe8a3ca8287047b94fb176faf4b374701cff06217293d8a5d35372",
+    "pair_fm_lr1e5": "e8f387d0b4e2096d17295195d85d450b280fe90a9b5af5d0ca0a4b9f2e4f126f"
+  },
+  "fm_exports": "Existing CPU torch.equal audits establish equivalence to historical native FM states; export file SHA differs from native state.pt SHA.",
+  "strict_caption_note": "Independent controlled ablation; not the historical 80.54% final model."
+}

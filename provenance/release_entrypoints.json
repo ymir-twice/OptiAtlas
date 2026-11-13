@@ -1,0 +1,30 @@
+{
+  "files_sha256": {
+    ".gitignore": "576a3499b48ae8ae4fe8ead2ac091867b59365e8cadad964bac8594a38779766",
+    "configs/paths.example.json": "8b16df2599f49a6c5b7afbf69e399a7ed0b7fc6d37af8e38a7cc291fb2d3126d",
+    "docs/ENTRYPOINTS.md": "99e5ddce78bb2c95b079af1b975efba9de1d98e75f7867ce1d23777535fdf9cc",
+    "docs/REPRODUCTION_LIMITS.md": "79164f076c4f7d5396d0c852981195ff1eb5d0edba076582245e785b50ffb80d",
+    "docs/scoring.md": "c7620181568e1a3b3f3fdc29811c54a4e4533e4ec44e1e5e10e7ef934424761b",
+    "environments/generator.txt": "95f78ccbd06d279b7eac8a2bf44a891cc088677c140e893bae5e13091b2c58ce",
+    "environments/policy.txt": "624fb13a35011727fbeccc2d0f81ee38434cd713eab0137752ecd5ef5a5bce59",
+    "environments/setup.py": "fb349ab87337ec39e06238516f29da448380fc7b6763c9dafd3b0389e9e0376e",
+    "optiatlas/__init__.py": "2e9d1e07a09bfac41fa860acd1c92142aaf3276368f0d660c0cbf8a7263259d6",
+    "optiatlas/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "optiatlas/cli.py": "9406e46c0ba396bc397b2900d8378416eebe21b9ca365088ef454d98ca3686a3",
+    "optiatlas/export_policy.py": "10c414c41ac4982833d8fe328114af786d518571a37008f39480727ca39bd106",
+    "optiatlas/generator_data.py": "a5c791c319654ddb0ccf50fd699b3c12dee235ba9eda4399872d7965837561d9",
+    "optiatlas/inference.py": "ccc22ab76e945f802701b78f1a94a4d2564f758a03c2a83a3f305be76bb4a233",
+    "optiatlas/judge_instructions.md": "4a0fcd1fa8abd682c363e3e4005d7d273c16c2888ab960e3f92330f9cea38d8b",
+    "optiatlas/paths.py": "a4e45c5d8ddc3815bb41967548b92781b983bd2401259021bd8cfd89a4ef02ab",
+    "optiatlas/released_data.py": "632a1ef2f769f0c356e08cee74513a18ee25a0e0be518a4fdf996698f78dcd46",
+    "optiatlas/scoring.py": "4a8f6a6332e536b744489fb6a55f0a8cde0a1ca12bbc89287358eaaea7d68ba6",
+    "optiatlas/worker.py": "5684c4101b81020966ca25d2e27c6e6c29eda914ba83faf9ef434efc95e0fa13",
+    "optics_experiments/__main__.py": "b1297fda1aca7721c513c53c5442d5a707c98925398ba0d19713edd6a1942f83",
+    "provenance/cpu_export_validation.json": "cddef5b4991b20582a9bdc9f1fed6cb442dfec36963b2d20e6b1e10962b07145",
+    "provenance/release_validation.json": "30c3ada28975ca38d2ff447c9448ed7dd57ff58ae40afc0e1be7951b4f025e8b",
+    "pyproject.toml": "734a3a0664efa0c4c5e67f725c9f13a1d24e75986db7c18f7ee688c6bad4f578",
+    "tests/test_release_contracts.py": "3a4f02d47ff77aafa4d93a551abfb62692f41468a7a3b13738c001ea73d650af",
+    "tests/test_scoring.py": "029f6874a5de2eabcdd8bd334369e1f8e538c154af9701cd8e2ac5300bcd6ee3"
+  },
+  "scope": "New release entry points, documented deployment boundaries, and offline tests; not historical frozen training source."
+}

@@ -1,0 +1,2032 @@
+{
+  "schema_version": 1,
+  "knowledge_version": "optics-52-v1.0.0",
+  "evidence_role": "conditional_guidance_not_image_evidence",
+  "usage_note": "These cards describe conditional optical behavior, not observations of the current image. Verify the stated conditions and visible details before using them. Do not infer hidden geometry, material, angle, wavelength, timing, or camera settings from a category label. Report image-left/right and above/below only from the actual image. The 2D checks are suggested observations, not measurements already made.",
+  "authorship_note": "Original concise knowledge cards and proposed image checks. Sources verify physical principles; examples and 2D checks are author-designed applications, not quotations or claims that each source prescribes a caption.",
+  "taxonomy_reference": "training_prompts/optics_4k_v1/taxonomy.json",
+  "sources": [
+    {
+      "source_id": "reflection",
+      "title": "The Law of Reflection",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/1-2-the-law-of-reflection",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "plane_mirrors",
+      "title": "Images Formed by Plane Mirrors",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/2-1-images-formed-by-plane-mirrors",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "curved_mirrors",
+      "title": "Spherical Mirrors",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/2-2-spherical-mirrors",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "refraction",
+      "title": "Refraction",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/1-3-refraction",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "refracted_images",
+      "title": "Images Formed by Refraction",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/2-3-images-formed-by-refraction",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "lenses",
+      "title": "Thin Lenses",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/2-4-thin-lenses",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "magnifier",
+      "title": "The Simple Magnifier",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/2-7-the-simple-magnifier",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "instruments",
+      "title": "Microscopes and Telescopes",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/2-8-microscopes-and-telescopes",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "tir",
+      "title": "Total Internal Reflection",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/1-4-total-internal-reflection",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "dispersion",
+      "title": "Dispersion",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/1-5-dispersion",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "polarization",
+      "title": "Polarization",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/1-7-polarization",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "films",
+      "title": "Interference in Thin Films",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/3-4-interference-in-thin-films",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "single_slit",
+      "title": "Single-Slit Diffraction",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/4-1-single-slit-diffraction",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "double_slit",
+      "title": "Double-Slit Diffraction",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/4-3-double-slit-diffraction",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "gratings",
+      "title": "Diffraction Gratings",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/4-4-diffraction-gratings",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "shadow_geometry",
+      "title": "The geometry of seeing",
+      "publisher": "Exploratorium",
+      "url": "https://annex.exploratorium.edu/geometry-playground/seeing.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "shadow_point",
+      "title": "Umbras and Penumbras",
+      "publisher": "University of Illinois Physics Van",
+      "url": "https://van.physics.illinois.edu/ask/listing/2068",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "shadow_extended",
+      "title": "Umbra and Penumbra - Extended Source",
+      "publisher": "University of Maryland Physics",
+      "url": "https://lecdem.physics.umd.edu/e/e2/1525-e2-23.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "colored_shadows",
+      "title": "Colored Shadows",
+      "publisher": "Exploratorium",
+      "url": "https://www.exploratorium.edu/snacks/colored-shadows",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "colored_glass",
+      "title": "Why is Glass Transparent?",
+      "publisher": "University of Illinois Physics Van",
+      "url": "https://van.physics.illinois.edu/ask/listing/25257",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "pinhole",
+      "title": "Pringles Pinhole",
+      "publisher": "Exploratorium",
+      "url": "https://annex.exploratorium.edu/science-explorer/pringles_pinhole.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "repeated_mirrors",
+      "title": "Look Into Infinity",
+      "publisher": "Exploratorium",
+      "url": "https://annex.exploratorium.edu/xref/exhibits/look_into_infinity.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "kaleidoscope",
+      "title": "Duck Into Kaleidoscope",
+      "publisher": "Exploratorium",
+      "url": "https://www.exploratorium.edu/snacks/duck-into-kaleidoscope",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "periscope",
+      "title": "Make a Periscope",
+      "publisher": "Exploratorium",
+      "url": "https://annex.exploratorium.edu/science-explorer/periscope.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "coin",
+      "title": "Further refraction demonstrations",
+      "publisher": "Institute of Physics",
+      "url": "https://spark.iop.org/further-refraction-demonstrations",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "scattering_demo",
+      "title": "Blue Sky",
+      "publisher": "Exploratorium",
+      "url": "https://www.exploratorium.edu/snacks/blue-sky",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "sky",
+      "title": "Why Is The Sky Blue?",
+      "publisher": "NOAA National Weather Service",
+      "url": "https://www.weather.gov/fgz/SkyBlue",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "scattering",
+      "title": "Radiation Transfer in the Atmosphere: Scattering",
+      "publisher": "NASA Goddard Institute for Space Studies",
+      "url": "https://ntrs.nasa.gov/search.jsp?R=20150002131",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "rainbows",
+      "title": "How Do Rainbows Form?",
+      "publisher": "NOAA National Weather Service",
+      "url": "https://www.weather.gov/fgz/Rainbow",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "supernumeraries",
+      "title": "Supernumerary Rainbows over New Jersey",
+      "publisher": "NASA APOD / Michigan Technological University",
+      "url": "https://apod.nasa.gov/apod/ap181002.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "reflection_rainbow",
+      "title": "Reflection rainbow",
+      "publisher": "World Meteorological Organization, International Cloud Atlas",
+      "url": "https://cloudatlas.wmo.int/reflection-rainbow.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "fogbow",
+      "title": "Fog bow",
+      "publisher": "World Meteorological Organization, International Cloud Atlas",
+      "url": "https://cloudatlas.wmo.int/fog-bow.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "mirage",
+      "title": "Mirage",
+      "publisher": "World Meteorological Organization, International Cloud Atlas",
+      "url": "https://cloudatlas.wmo.int/en/mirage.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "green_flash",
+      "title": "Green Flash",
+      "publisher": "World Meteorological Organization, International Cloud Atlas",
+      "url": "https://cloudatlas.wmo.int/en/green-flash.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "crepuscular",
+      "title": "Crepuscular rays",
+      "publisher": "World Meteorological Organization, International Cloud Atlas",
+      "url": "https://cloudatlas.wmo.int/en/crepuscular-rays.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "halo",
+      "title": "Halo Phenomena",
+      "publisher": "World Meteorological Organization, International Cloud Atlas",
+      "url": "https://cloudatlas.wmo.int/en/halo-phenomena.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "circumzenithal",
+      "title": "Circumzenithal arc",
+      "publisher": "World Meteorological Organization, International Cloud Atlas",
+      "url": "https://cloudatlas.wmo.int/en/circumzenithal-arc.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "corona",
+      "title": "Corona",
+      "publisher": "World Meteorological Organization, International Cloud Atlas",
+      "url": "https://cloudatlas.wmo.int/en/corona.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "glory",
+      "title": "Glory",
+      "publisher": "World Meteorological Organization, International Cloud Atlas",
+      "url": "https://cloudatlas.wmo.int/en/glory.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "shimmer",
+      "title": "Shimmer",
+      "publisher": "World Meteorological Organization, International Cloud Atlas",
+      "url": "https://cloudatlas.wmo.int/en/shimmer.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "scintillation",
+      "title": "Scintillation",
+      "publisher": "World Meteorological Organization, International Cloud Atlas",
+      "url": "https://cloudatlas.wmo.int/en/scintillation.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "halo_pillar",
+      "title": "What Causes Halos, Sundogs and Sun Pillars?",
+      "publisher": "NOAA National Weather Service",
+      "url": "https://www.weather.gov/arx/why_halos_sundogs_pillars",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "circumhorizontal",
+      "title": "Circumhorizon arc over Spokane/Post Falls",
+      "publisher": "NOAA National Weather Service",
+      "url": "https://www.weather.gov/otx/Strange_Rainbow_Over_the_Spokane_Post_Falls_Area-June32006",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "solar_eclipse",
+      "title": "Annular solar eclipse FAQ",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/eclipses/future-eclipses/eclipse-2023/faq/",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "lunar_eclipse",
+      "title": "Eclipses and the Moon",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/moon/eclipses/",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "photoelasticity",
+      "title": "Bone Stress",
+      "publisher": "Exploratorium",
+      "url": "https://www.exploratorium.edu/snacks/bone-stress",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "structural",
+      "title": "Taking inspiration from nature's brightest colours",
+      "publisher": "University of Cambridge",
+      "url": "https://www.cam.ac.uk/research/news/taking-inspiration-from-natures-brightest-colours",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "spikes",
+      "title": "Webb's Diffraction Spikes",
+      "publisher": "NASA / ESA / CSA / STScI",
+      "url": "https://science.nasa.gov/asset/webb/webbs-diffraction-spikes/",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "starburst",
+      "title": "Bright Idea: Adding Star Power",
+      "publisher": "Nikon, optical manufacturer education",
+      "url": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/bright-idea-adding-star-power",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "aberrations",
+      "title": "Common Optical Defects in Lens Systems",
+      "publisher": "Florida State University, Molecular Expressions",
+      "url": "https://micro.magnet.fsu.edu/primer/lightandcolor/opticalaberrations.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "focus",
+      "title": "Depth of Field and Image Depth",
+      "publisher": "Florida State University, Molecular Expressions",
+      "url": "https://micro.magnet.fsu.edu/primer/anatomy/focusdepth.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "flare",
+      "title": "RF Lens World: Optical Technology and Coatings",
+      "publisher": "Canon, optical manufacturer technical documentation",
+      "url": "https://files.canon-europe.com/files/webcontent/rf-lens-world/features/technology/index.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "caustics",
+      "title": "Quantum catastrophes and caustics",
+      "publisher": "Duncan O'Dell, McMaster University Physics",
+      "url": "https://physics.mcmaster.ca/people/faculty/O'Dell/ODell_D_quantumCatastrophe.html",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "sun_shadows",
+      "title": "The Sky Above Us",
+      "publisher": "NASA Goddard Space Flight Center",
+      "url": "https://pwg.gsfc.nasa.gov/stargaze/Ssky.htm",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "rough_reflection",
+      "title": "Reflection",
+      "publisher": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/physics/pages/16-1-reflection",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "polarized_glare",
+      "title": "Polarized Sunglasses",
+      "publisher": "Exploratorium",
+      "url": "https://www.exploratorium.edu/snacks/polarized-sunglasses",
+      "verified_on": "2026-09-27"
+    },
+    {
+      "source_id": "structural_disordered",
+      "title": "Researchers show why blues and greens are the brightest in nature",
+      "publisher": "University of Cambridge, Yusuf Hamied Department of Chemistry",
+      "url": "https://www.ch.cam.ac.uk/news/researchers-show-why-blues-and-greens-are-brightest-nature",
+      "verified_on": "2026-09-27"
+    }
+  ],
+  "cards": [
+    {
+      "category_id": "sunlight_shadows",
+      "conditions_and_visible_results": [
+        {
+          "when": "Direct sunlight dominates and objects stand on one flat receiver.",
+          "visible_result": "Shadow axes share a ground-plane direction; perspective may make their image axes converge."
+        },
+        {
+          "when": "Solar elevation decreases while the upright object and level receiver stay fixed.",
+          "visible_result": "The shadow becomes longer; increasing elevation shortens it."
+        },
+        {
+          "when": "The caster touches the receiver and sunlight is unobstructed.",
+          "visible_result": "The shadow meets the contact point; elevated parts can have softer edges."
+        }
+      ],
+      "non_generalization": [
+        "Image-left/right is set by scene layout and camera, never by the category. Slopes, skylight and other lights alter comparisons."
+      ],
+      "checkable_2d_metrics": [
+        "Mark contact points and shadow endpoints in pixels.",
+        "Compare lengths only for matched object heights and receiver planes; record edge widths."
+      ],
+      "search_queries": [
+        "sunlight pole pavement long shadow",
+        "阳光 接触点 阴影"
+      ],
+      "source_ids": [
+        "shadow_geometry",
+        "shadow_extended",
+        "sun_shadows"
+      ],
+      "name_en": "Directional sunlight shadows",
+      "name_zh": "阳光与定向光阴影"
+    },
+    {
+      "category_id": "point_source_shadows",
+      "conditions_and_visible_results": [
+        {
+          "when": "One small source illuminates an opaque caster and receiver; source angular size is small.",
+          "visible_result": "A single relatively sharp silhouette is possible."
+        },
+        {
+          "when": "A caster moves toward the point source with source and screen fixed.",
+          "visible_result": "Its projection grows on the screen; contours follow diverging source rays."
+        }
+      ],
+      "non_generalization": [
+        "Small source does not mean distant directional light. Sharpness alone cannot identify source size or distance."
+      ],
+      "checkable_2d_metrics": [
+        "Measure silhouette width relative to the caster when both are visible.",
+        "Extend several caster-to-shadow landmark lines to test an approximate projected source position."
+      ],
+      "search_queries": [
+        "small lamp enlarged sharp object shadow",
+        "点光源 阴影 放大"
+      ],
+      "source_ids": [
+        "shadow_point",
+        "shadow_geometry"
+      ],
+      "name_en": "Point-like source shadows",
+      "name_zh": "近似点光源阴影"
+    },
+    {
+      "category_id": "extended_source_shadows",
+      "conditions_and_visible_results": [
+        {
+          "when": "An opaque caster blocks all rays from an extended emitter at a receiver location.",
+          "visible_result": "A darker umbra can occur there, surrounded by partially illuminated penumbra."
+        },
+        {
+          "when": "Source angular size or caster-to-receiver separation grows, with comparable geometry.",
+          "visible_result": "The boundary transition generally broadens; the umbra can shrink or disappear."
+        }
+      ],
+      "non_generalization": [
+        "A soft edge is not proof of an area emitter: defocus, motion and scattering can blur it. Sunlight has finite angular extent."
+      ],
+      "checkable_2d_metrics": [
+        "Measure luminance transition width normal to several shadow edges.",
+        "Record whether a dark central plateau is resolved, not merely assumed."
+      ],
+      "search_queries": [
+        "softbox penumbra shadow gradient",
+        "面光源 半影 宽度"
+      ],
+      "source_ids": [
+        "shadow_extended"
+      ],
+      "name_en": "Extended source shadows and penumbrae",
+      "name_zh": "面光源与半影"
+    },
+    {
+      "category_id": "multiple_colored_shadows",
+      "conditions_and_visible_results": [
+        {
+          "when": "Separated lamps illuminate the same receiver and a caster blocks different lamps along different paths.",
+          "visible_result": "Offset shadow silhouettes can overlap; all blocked contributions give the darkest overlap."
+        },
+        {
+          "when": "Red, green and blue beams overlap on a neutral screen and the caster blocks only red.",
+          "visible_result": "Green and blue remain, producing a cyan region; other blocked channels give other additive mixtures."
+        }
+      ],
+      "non_generalization": [
+        "A shadow does not inherit the color of the blocked lamp. Colored glass transmission is a different mechanism."
+      ],
+      "checkable_2d_metrics": [
+        "Count offset silhouettes and map their overlaps.",
+        "Compare visible colors in lit, singly blocked and multiply blocked regions."
+      ],
+      "search_queries": [
+        "RGB colored shadows cyan magenta yellow",
+        "彩色阴影 多光源"
+      ],
+      "source_ids": [
+        "colored_shadows"
+      ],
+      "name_en": "Multiple and colored light shadows",
+      "name_zh": "多光源与彩色阴影"
+    },
+    {
+      "category_id": "translucent_object_shadows",
+      "conditions_and_visible_results": [
+        {
+          "when": "Broadband illumination passes through a colored transparent material onto a pale receiver.",
+          "visible_result": "The transmitted patch is tinted by the surviving wavelengths, with a darker border possible."
+        },
+        {
+          "when": "The object strongly scatters transmitted light.",
+          "visible_result": "The transmitted patch is more diffuse and fine projected detail is weakened."
+        },
+        {
+          "when": "Curved clear parts redirect illumination onto the receiver.",
+          "visible_result": "Bright concentrations can coexist with dark attenuation; an all-dark silhouette is unnecessary."
+        }
+      ],
+      "non_generalization": [
+        "A material cannot transmit absent source wavelengths. Do not require the patch to exactly match the photographed object color."
+      ],
+      "checkable_2d_metrics": [
+        "Compare patch color and brightness to adjacent receiver.",
+        "Locate diffuse boundaries and bright concentrations relative to the object."
+      ],
+      "search_queries": [
+        "stained glass colored transmitted patch",
+        "半透明 彩色投影"
+      ],
+      "source_ids": [
+        "colored_glass",
+        "refraction"
+      ],
+      "name_en": "Transparent and translucent object projections",
+      "name_zh": "透明半透明物体投影"
+    },
+    {
+      "category_id": "pinhole_projection",
+      "conditions_and_visible_results": [
+        {
+          "when": "A small aperture admits rays from a bright scene onto a screen in a dark enclosure without relay mirrors.",
+          "visible_result": "Scene landmarks form an inverted projection."
+        },
+        {
+          "when": "Small leaf gaps admit sunlight onto a sufficiently distant surface.",
+          "visible_result": "Patches can depict the solar disk or eclipse crescent rather than leaf-gap outlines."
+        },
+        {
+          "when": "The aperture becomes too large or extremely small.",
+          "visible_result": "Geometric overlap or diffraction respectively limits image sharpness."
+        }
+      ],
+      "non_generalization": [
+        "A bright patch is not automatically an image. A mirror or a rotated screen changes photographed orientation."
+      ],
+      "checkable_2d_metrics": [
+        "Match projected landmarks and their relative inversion.",
+        "Measure repeated disk or crescent contours and edge blur on the receiver."
+      ],
+      "search_queries": [
+        "pinhole camera obscura inverted screen",
+        "针孔 树叶 日食 投影"
+      ],
+      "source_ids": [
+        "pinhole",
+        "single_slit"
+      ],
+      "name_en": "Pure pinhole image projection",
+      "name_zh": "纯针孔成像"
+    },
+    {
+      "category_id": "plane_mirror_geometry",
+      "conditions_and_visible_results": [
+        {
+          "when": "An ideal plane mirror reflects an object visible from the camera through its finite boundary.",
+          "visible_result": "A corresponding virtual scene appears within the mirror, with viewpoint-dependent cropping and occlusion."
+        },
+        {
+          "when": "An asymmetric object is viewed via one reflection.",
+          "visible_result": "Its handedness changes; the visible correspondence is a reflection through the mirror plane."
+        }
+      ],
+      "non_generalization": [
+        "Do not implement a universal screen-horizontal flip. Equal physical object/image sizes do not imply equal pixel sizes. A mirror may show objects outside the direct view."
+      ],
+      "checkable_2d_metrics": [
+        "Match distinctive landmarks and occlusion order inside the mirror.",
+        "Check clipping at the mirror boundary and consistency of reflected scene perspective."
+      ],
+      "search_queries": [
+        "plane mirror reflected landmark correspondence",
+        "平面镜 局部对应 手性"
+      ],
+      "source_ids": [
+        "plane_mirrors"
+      ],
+      "name_en": "Plane mirror geometry and local correspondence",
+      "name_zh": "平面镜几何与局部一致性"
+    },
+    {
+      "category_id": "multiple_mirror_reflections",
+      "conditions_and_visible_results": [
+        {
+          "when": "Two facing mirrors include the observer in repeated reflection paths.",
+          "visible_result": "Nested copies can recede, usually becoming smaller and dimmer."
+        },
+        {
+          "when": "Mirrors meet at an angle and the object lies within their reflected fields.",
+          "visible_result": "Repeated views occupy different angular sectors; visible count depends on angle, placement and cropping."
+        }
+      ],
+      "non_generalization": [
+        "Do not demand infinitely many resolved copies or use a universal image-count formula without geometry."
+      ],
+      "checkable_2d_metrics": [
+        "Trace a distinctive repeated landmark through successive copies.",
+        "Compare copy scale, brightness and clipping, allowing occlusion."
+      ],
+      "search_queries": [
+        "facing mirrors repeated receding images",
+        "双镜 多次反射"
+      ],
+      "source_ids": [
+        "repeated_mirrors",
+        "plane_mirrors"
+      ],
+      "name_en": "Two mirrors and repeated reflections",
+      "name_zh": "双镜与多次反射"
+    },
+    {
+      "category_id": "kaleidoscopes",
+      "conditions_and_visible_results": [
+        {
+          "when": "Angled plane mirrors enclose visible colored pieces.",
+          "visible_result": "Reflected motifs repeat across mirror seams with alternating reflected orientation."
+        },
+        {
+          "when": "A symmetric mirror arrangement is viewed near its intended axis.",
+          "visible_result": "A radial or tiled repeated pattern can fill the field; off-axis views can crop or skew sectors."
+        }
+      ],
+      "non_generalization": [
+        "The category does not specify sixfold symmetry, exact motif count, or perfect overall circularity."
+      ],
+      "checkable_2d_metrics": [
+        "Compare motif shape and colors across neighboring seams.",
+        "Count only visible sectors and locate the pattern center where supported."
+      ],
+      "search_queries": [
+        "kaleidoscope mirrored wedges repeated motif",
+        "万花筒 对称 图案"
+      ],
+      "source_ids": [
+        "kaleidoscope"
+      ],
+      "name_en": "Kaleidoscope optics",
+      "name_zh": "万花筒"
+    },
+    {
+      "category_id": "periscopes",
+      "conditions_and_visible_results": [
+        {
+          "when": "Two parallel plane mirrors at about 45 degrees route the field through a simple periscope.",
+          "visible_result": "An offset viewpoint becomes visible through the eyepiece, usually upright after two reflections."
+        },
+        {
+          "when": "The tube opening or mirror aperture limits the routed field.",
+          "visible_result": "The scene is cropped by the viewing opening; parts behind the obstruction remain unseen."
+        }
+      ],
+      "non_generalization": [
+        "A housing alone does not establish a visible optical path. Prism, lens and relay designs can change orientation."
+      ],
+      "checkable_2d_metrics": [
+        "Describe recognizable scene detail within the viewing aperture.",
+        "Check correspondence of visible field and apertures only when both are shown."
+      ],
+      "search_queries": [
+        "periscope eyepiece scene around obstruction",
+        "潜望镜 两镜 视野"
+      ],
+      "source_ids": [
+        "periscope"
+      ],
+      "name_en": "Periscope optical paths",
+      "name_zh": "潜望镜"
+    },
+    {
+      "category_id": "retroreflection",
+      "conditions_and_visible_results": [
+        {
+          "when": "A retroreflective patch is illuminated with the source close to the camera direction.",
+          "visible_result": "The patch can look conspicuously bright against surrounding material."
+        },
+        {
+          "when": "The observer moves away from the returned-light direction.",
+          "visible_result": "The same passive patch may appear much dimmer."
+        }
+      ],
+      "non_generalization": [
+        "Brightness does not prove emission or retroreflection. A single uncalibrated view cannot establish the angular response."
+      ],
+      "checkable_2d_metrics": [
+        "Compare brightness of the patch with nearby nonreflective material.",
+        "For matched views, compare the same patch with source-camera separation changed."
+      ],
+      "search_queries": [
+        "flash bicycle reflector bright vest stripes",
+        "回归反射 闪光 反光条"
+      ],
+      "source_ids": [
+        "reflection"
+      ],
+      "name_en": "Retroreflection",
+      "name_zh": "回归反射"
+    },
+    {
+      "category_id": "specular_reflection_paths",
+      "conditions_and_visible_results": [
+        {
+          "when": "A directed beam strikes a locally smooth reflector and a receiver intercepts its reflected path.",
+          "visible_result": "A redirected spot appears on that receiver."
+        },
+        {
+          "when": "Scattering material makes both incident and reflected beam segments visible.",
+          "visible_result": "The segments meet at the reflecting surface; their angles match about the local normal in the incidence plane."
+        }
+      ],
+      "non_generalization": [
+        "Clean air need not reveal rays. Equal 3D angles need not look equal in a perspective photograph."
+      ],
+      "checkable_2d_metrics": [
+        "Locate the visible surface interaction point and segment continuity.",
+        "Measure screen-space angles only when the incidence plane is demonstrably viewed face-on."
+      ],
+      "search_queries": [
+        "mirror laser reflected beam spot",
+        "镜面反射 光路 反射点"
+      ],
+      "source_ids": [
+        "reflection"
+      ],
+      "name_en": "Specular paths and reflection points",
+      "name_zh": "镜面反射路径与反射点"
+    },
+    {
+      "category_id": "surface_roughness_reflection",
+      "conditions_and_visible_results": [
+        {
+          "when": "The reflecting surface is optically smooth and a scene lies in its reflected field.",
+          "visible_result": "Recognizable sharp reflected detail or compact highlights can appear."
+        },
+        {
+          "when": "Surface microfacets span more orientations under comparable illumination.",
+          "visible_result": "Highlights broaden and reflected scene detail loses clarity."
+        },
+        {
+          "when": "A glossy surface also has diffuse reflection.",
+          "visible_result": "Broad shading and highlights can coexist on the same object."
+        }
+      ],
+      "non_generalization": [
+        "Do not require every shiny object to show a complete mirror image. Surface waviness, defocus and lighting also affect sharpness."
+      ],
+      "checkable_2d_metrics": [
+        "Compare highlight widths and reflected edge contrast.",
+        "Separate surface texture from visible reflected landmarks."
+      ],
+      "search_queries": [
+        "rough glossy matte blurred reflection",
+        "粗糙 光泽 漫反射"
+      ],
+      "source_ids": [
+        "rough_reflection"
+      ],
+      "name_en": "Smooth glossy and diffuse surfaces",
+      "name_zh": "光滑光泽漫反射"
+    },
+    {
+      "category_id": "curved_mirror_images",
+      "conditions_and_visible_results": [
+        {
+          "when": "A convex mirror views an ordinary real object.",
+          "visible_result": "An upright reduced virtual image offers a broad field."
+        },
+        {
+          "when": "A concave mirror views an object inside its focal distance.",
+          "visible_result": "An upright enlarged virtual image can appear."
+        },
+        {
+          "when": "A concave mirror views an object beyond its focal distance.",
+          "visible_result": "A real inverted image can form; its size changes with object distance."
+        }
+      ],
+      "non_generalization": [
+        "A concave mirror is not always magnifying or always inverting. Shape and focal distance cannot be read reliably from a label."
+      ],
+      "checkable_2d_metrics": [
+        "Compare asymmetric landmark orientation and relative apparent scale.",
+        "Record edge distortion and field coverage within the mirror."
+      ],
+      "search_queries": [
+        "spoon concave convex mirror upright inverted",
+        "曲面镜 倒像 放大"
+      ],
+      "source_ids": [
+        "curved_mirrors"
+      ],
+      "name_en": "Curved mirror imaging",
+      "name_zh": "曲面镜成像"
+    },
+    {
+      "category_id": "refraction_interfaces",
+      "conditions_and_visible_results": [
+        {
+          "when": "A ray crosses obliquely into a medium of higher refractive index.",
+          "visible_result": "It turns toward the local normal; the reverse index transition turns it away if transmission exists."
+        },
+        {
+          "when": "A partly submerged straight object is viewed obliquely through water and air.",
+          "visible_result": "Its visible segments can appear offset or kinked at the interface."
+        },
+        {
+          "when": "A ray meets a flat interface normally.",
+          "visible_result": "There need not be any directional kink."
+        }
+      ],
+      "non_generalization": [
+        "No universal left/right bend follows from this category. Container walls, curvature and viewpoint can add separate offsets."
+      ],
+      "checkable_2d_metrics": [
+        "Locate the interface and measure visible segment offsets.",
+        "Check beam continuity at the boundary; use 2D angles only with established viewing geometry."
+      ],
+      "search_queries": [
+        "bent straw water glass interface",
+        "折射 界面 吸管 偏移"
+      ],
+      "source_ids": [
+        "refraction"
+      ],
+      "name_en": "Refraction at interfaces",
+      "name_zh": "介质界面折射"
+    },
+    {
+      "category_id": "apparent_depth_displacement",
+      "conditions_and_visible_results": [
+        {
+          "when": "A submerged object is viewed from air through a flat surface close to normal incidence.",
+          "visible_result": "It appears closer to the surface than its physical depth."
+        },
+        {
+          "when": "An oblique ray crosses a parallel-sided slab and emerges into its original medium.",
+          "visible_result": "The outgoing ray can be parallel to the incident ray but laterally displaced."
+        }
+      ],
+      "non_generalization": [
+        "The near-normal apparent-depth rule is not a universal scaling of every submerged object. Pixel displacement alone cannot determine physical depth."
+      ],
+      "checkable_2d_metrics": [
+        "Compare matched submerged and above-surface landmarks at a visible waterline.",
+        "Measure slab entry/exit offsets only if both ray segments and slab boundaries are resolved."
+      ],
+      "search_queries": [
+        "coin apparent depth submerged ruler displacement",
+        "表观深度 平行玻璃 位移"
+      ],
+      "source_ids": [
+        "refracted_images",
+        "refraction"
+      ],
+      "name_en": "Apparent depth and displacement",
+      "name_zh": "表观深度与位移"
+    },
+    {
+      "category_id": "refraction_visibility",
+      "conditions_and_visible_results": [
+        {
+          "when": "A fixed viewpoint just hides a coin behind an opaque bowl rim, and water is added with suitable depth.",
+          "visible_result": "Refraction can bring the coin into the visible field above the rim."
+        },
+        {
+          "when": "The rim still blocks every refracted route to the observer.",
+          "visible_result": "The coin remains hidden despite water being present."
+        }
+      ],
+      "non_generalization": [
+        "Do not claim an object appeared or disappeared from one image without a baseline. Refraction does not reveal arbitrary opaque interiors."
+      ],
+      "checkable_2d_metrics": [
+        "Record visible fraction of the coin and its relation to the rim.",
+        "For paired views, verify fixed rim/viewpoint landmarks before comparing visibility."
+      ],
+      "search_queries": [
+        "coin appears bowl rim adding water",
+        "折射 可见性 隐藏硬币"
+      ],
+      "source_ids": [
+        "coin"
+      ],
+      "name_en": "Refraction and visibility around obstructions",
+      "name_zh": "折射引起的可见性变化"
+    },
+    {
+      "category_id": "convex_real_images",
+      "conditions_and_visible_results": [
+        {
+          "when": "An ordinary converging lens has a real object beyond its focal distance and a screen at the conjugate plane.",
+          "visible_result": "A focused inverted real image forms on the screen."
+        },
+        {
+          "when": "The object is between one and two focal lengths, compared with beyond two focal lengths.",
+          "visible_result": "The real image is respectively enlarged or reduced in the ideal thin-lens geometry."
+        },
+        {
+          "when": "The receiver misses the image plane.",
+          "visible_result": "Projected details become blurred."
+        }
+      ],
+      "non_generalization": [
+        "A convex shape alone does not guarantee convergence in every surrounding medium. An object inside the focal distance does not give this real-screen image."
+      ],
+      "checkable_2d_metrics": [
+        "Match asymmetric object and screen landmarks.",
+        "Measure projected image size and edge sharpness on the actual receiver."
+      ],
+      "search_queries": [
+        "convex lens candle inverted screen image",
+        "凸透镜 实像 屏幕 倒像"
+      ],
+      "source_ids": [
+        "lenses"
+      ],
+      "name_en": "Convex-lens real images and lens camera obscura",
+      "name_zh": "凸透镜实像与透镜暗箱"
+    },
+    {
+      "category_id": "magnifier_virtual_images",
+      "conditions_and_visible_results": [
+        {
+          "when": "A converging magnifier is used with its object inside the focal distance.",
+          "visible_result": "The viewed object can appear upright and enlarged through the lens."
+        },
+        {
+          "when": "The object is moved beyond the focal distance.",
+          "visible_result": "The familiar upright magnifier view is no longer assured; an inverted view can be possible."
+        }
+      ],
+      "non_generalization": [
+        "Do not call every convex-lens view upright. Angular magnification and pixel-size ratio depend on eye/camera position."
+      ],
+      "checkable_2d_metrics": [
+        "Compare letter orientation and local scale across the lens boundary.",
+        "Record clipping, edge distortion and which details remain legible."
+      ],
+      "search_queries": [
+        "magnifying glass upright enlarged letters",
+        "放大镜 正立 虚像"
+      ],
+      "source_ids": [
+        "magnifier"
+      ],
+      "name_en": "Magnifier virtual images",
+      "name_zh": "放大镜虚像"
+    },
+    {
+      "category_id": "concave_lens_viewing",
+      "conditions_and_visible_results": [
+        {
+          "when": "An ordinary diverging lens in air views a real object.",
+          "visible_result": "The virtual image is upright and reduced."
+        },
+        {
+          "when": "An extended background crosses the boundary of a minus spectacle lens.",
+          "visible_result": "Background features can look smaller and displaced within the lens area."
+        }
+      ],
+      "non_generalization": [
+        "Do not transfer this rule to arbitrary multi-element systems or lenses immersed in a different-index medium."
+      ],
+      "checkable_2d_metrics": [
+        "Compare feature scale and orientation just inside/outside the lens.",
+        "Measure visible discontinuity at the lens boundary without inferring prescription."
+      ],
+      "search_queries": [
+        "minus glasses smaller background concave lens",
+        "凹透镜 正立 缩小"
+      ],
+      "source_ids": [
+        "lenses"
+      ],
+      "name_en": "Diverging lens views",
+      "name_zh": "凹透镜观察"
+    },
+    {
+      "category_id": "compound_optical_instruments",
+      "conditions_and_visible_results": [
+        {
+          "when": "An objective and eyepiece are aligned and focused on a suitable target.",
+          "visible_result": "Resolved enlarged detail can occupy a bounded eyepiece field."
+        },
+        {
+          "when": "A simple astronomical telescope or compound microscope lacks an erecting relay.",
+          "visible_result": "An inverted field is possible; binocular prisms or other relays may restore orientation."
+        }
+      ],
+      "non_generalization": [
+        "Instrument identity does not guarantee magnification, focus or image orientation in the photograph. Housing photos need not show an optical effect."
+      ],
+      "checkable_2d_metrics": [
+        "Record field-stop boundary, resolved features and vignetting.",
+        "Compare known asymmetric landmarks only when a reference orientation is visible."
+      ],
+      "search_queries": [
+        "microscope telescope eyepiece field detail",
+        "复合光学仪器 目镜 视野"
+      ],
+      "source_ids": [
+        "instruments"
+      ],
+      "name_en": "Compound optical instruments",
+      "name_zh": "复合光学仪器"
+    },
+    {
+      "category_id": "total_internal_reflection",
+      "conditions_and_visible_results": [
+        {
+          "when": "Light inside the higher-index medium reaches a lower-index boundary above the critical angle.",
+          "visible_result": "The transmitted propagating ray is absent and an internal reflected ray remains."
+        },
+        {
+          "when": "An underwater observer looks beyond the angular window admitting the above-water scene.",
+          "visible_result": "The surface can show a mirror-like underwater reflection outside that window."
+        }
+      ],
+      "non_generalization": [
+        "A bright reflection alone does not prove total internal reflection. The index ordering and angle are essential; below threshold partial reflection is possible."
+      ],
+      "checkable_2d_metrics": [
+        "Locate the boundary between transmitted scene and internally reflected scene.",
+        "Track reflected beam continuity when the beam is visible."
+      ],
+      "search_queries": [
+        "underwater Snell window mirror surface",
+        "全反射 临界角 水面"
+      ],
+      "source_ids": [
+        "tir"
+      ],
+      "name_en": "Total internal reflection",
+      "name_zh": "全反射"
+    },
+    {
+      "category_id": "fibers_light_guiding",
+      "conditions_and_visible_results": [
+        {
+          "when": "Light is coupled into a transparent guide with suitable index contrast and launch directions.",
+          "visible_result": "Light can emerge from a distant end even along a gentle curve."
+        },
+        {
+          "when": "A guide leaks or scatters at scratches, bends or particles.",
+          "visible_result": "Some side regions become visible; an ideal clean guide need not glow along its full length."
+        }
+      ],
+      "non_generalization": [
+        "Do not require a luminous zigzag inside a fiber. Bright tips alone do not establish the exact internal path or index profile."
+      ],
+      "checkable_2d_metrics": [
+        "Record bright ends, visible bends and localized leakage.",
+        "Compare output brightness with surrounding background, without inferring efficiency."
+      ],
+      "search_queries": [
+        "fiber optic tips curved water stream light",
+        "光纤 导光 发光端点"
+      ],
+      "source_ids": [
+        "tir"
+      ],
+      "name_en": "Fibres and light guiding",
+      "name_zh": "光纤与导光"
+    },
+    {
+      "category_id": "refractive_caustics",
+      "conditions_and_visible_results": [
+        {
+          "when": "Directed illumination crosses a curved transparent surface onto a receiver.",
+          "visible_result": "Uneven ray concentration can produce bright curves, cusps or patches."
+        },
+        {
+          "when": "Sunlight crosses rippled water onto a visible pool floor.",
+          "visible_result": "Bright interconnected bands and darker intervening regions can follow changing wave slopes."
+        }
+      ],
+      "non_generalization": [
+        "Caustics need not be rainbow-colored, heart-shaped or uniformly sharp. The receiver need not be directly below the refractor."
+      ],
+      "checkable_2d_metrics": [
+        "Trace bright band contours and compare their contrast to nearby receiver.",
+        "Check that the pattern lies on an actual visible surface and respects its occlusion."
+      ],
+      "search_queries": [
+        "pool floor water caustic bright network",
+        "折射焦散 水纹 亮线"
+      ],
+      "source_ids": [
+        "caustics"
+      ],
+      "name_en": "Refractive caustics",
+      "name_zh": "折射焦散"
+    },
+    {
+      "category_id": "reflective_caustics",
+      "conditions_and_visible_results": [
+        {
+          "when": "Directed illumination reflects from a curved shiny wall onto a nearby receiver.",
+          "visible_result": "Concentrated bright arcs or cusps can appear."
+        },
+        {
+          "when": "A circular cup wall reflects approximately parallel light into a suitable interior plane.",
+          "visible_result": "A cusp-bearing coffee-cup caustic can appear; its exact section depends on source and receiver geometry."
+        }
+      ],
+      "non_generalization": [
+        "Do not force every reflective caustic into one cardioid. A bright reflected image of a lamp is not necessarily a caustic."
+      ],
+      "checkable_2d_metrics": [
+        "Trace curve and cusp positions relative to the cup or reflector.",
+        "Measure the bright-line contrast and note interrupted portions."
+      ],
+      "search_queries": [
+        "coffee cup curved metal caustic cusp",
+        "反射焦散 杯壁 尖点"
+      ],
+      "source_ids": [
+        "caustics"
+      ],
+      "name_en": "Reflective caustics",
+      "name_zh": "反射焦散"
+    },
+    {
+      "category_id": "dispersion",
+      "conditions_and_visible_results": [
+        {
+          "when": "Broadband light traverses a dispersive prism with nonparallel faces.",
+          "visible_result": "Wavelengths emerge in different directions and can form a spatial spectrum on a receiver."
+        },
+        {
+          "when": "Ordinary glass has normal visible dispersion.",
+          "visible_result": "Violet is deviated more than red relative to the incident direction; image-side order depends on prism and camera orientation."
+        },
+        {
+          "when": "Illumination is nearly monochromatic.",
+          "visible_result": "A full visible rainbow spectrum is not expected."
+        }
+      ],
+      "non_generalization": [
+        "Do not prescribe red-on-left or red-on-top. Colored surface patches may come from other mechanisms."
+      ],
+      "checkable_2d_metrics": [
+        "Record the observed color order along the spread axis.",
+        "Locate the prism and spectrum footprint when visible; distinguish separate light from colored material."
+      ],
+      "search_queries": [
+        "prism spectrum wavelength separation",
+        "棱镜 色散 光谱"
+      ],
+      "source_ids": [
+        "dispersion"
+      ],
+      "name_en": "Wavelength dispersion",
+      "name_zh": "色散"
+    },
+    {
+      "category_id": "particle_light_beams",
+      "conditions_and_visible_results": [
+        {
+          "when": "A directed beam crosses suspended particles that scatter light into the camera.",
+          "visible_result": "A luminous shaft can be visible against a darker background."
+        },
+        {
+          "when": "Scattering is weak, viewing direction unfavorable, or ambient illumination strong.",
+          "visible_result": "The shaft may be faint or absent even when a receiver spot is bright."
+        }
+      ],
+      "non_generalization": [
+        "Do not describe visible rays in clean air by default. A beam photograph cannot identify particle species or concentration."
+      ],
+      "checkable_2d_metrics": [
+        "Trace the visible beam axis and width.",
+        "Compare shaft brightness to adjacent medium and note occlusion by solid objects."
+      ],
+      "search_queries": [
+        "haze laser visible beam milk water",
+        "粒子散射 可见光束"
+      ],
+      "source_ids": [
+        "scattering_demo"
+      ],
+      "name_en": "Particle scattering and visible beams",
+      "name_zh": "粒子散射光束"
+    },
+    {
+      "category_id": "rayleigh_sky",
+      "conditions_and_visible_results": [
+        {
+          "when": "Sunlight is scattered by molecules in a reasonably clear daytime atmosphere.",
+          "visible_result": "The sky away from the Sun commonly appears blue."
+        },
+        {
+          "when": "Direct sunlight traverses a longer atmospheric path near the horizon.",
+          "visible_result": "The surviving direct light may look warmer as shorter wavelengths are preferentially scattered away."
+        }
+      ],
+      "non_generalization": [
+        "A blue region is not proof of pure Rayleigh scattering, and every sunset need not be red. Aerosols, clouds, exposure and white balance matter."
+      ],
+      "checkable_2d_metrics": [
+        "Describe observed hue and brightness gradients with horizon position.",
+        "Compare distant landmark contrast without estimating gas composition or optical depth."
+      ],
+      "search_queries": [
+        "blue sky red sunset scattering",
+        "瑞利散射 蓝天 日落"
+      ],
+      "source_ids": [
+        "sky"
+      ],
+      "name_en": "Rayleigh scattering and sky appearance",
+      "name_zh": "瑞利散射与天空"
+    },
+    {
+      "category_id": "mie_fog_clouds",
+      "conditions_and_visible_results": [
+        {
+          "when": "Numerous droplets comparable to or larger than visible wavelengths scatter broadband illumination.",
+          "visible_result": "Fog and clouds can appear white or gray, with reduced background contrast."
+        },
+        {
+          "when": "A bright source is viewed through a scattering droplet layer.",
+          "visible_result": "A diffuse glow may surround it; thicker paths can obscure distant features."
+        }
+      ],
+      "non_generalization": [
+        "White fog does not establish an exact particle size or a purely single-scattering mechanism. Clouds need not be white under every illumination."
+      ],
+      "checkable_2d_metrics": [
+        "Compare near and distant edge contrast in the same scene.",
+        "Measure the visible glow extent around a source and record occlusion of landmarks."
+      ],
+      "search_queries": [
+        "fog headlights diffuse glare cloud white",
+        "雾 云 米氏散射 对比度"
+      ],
+      "source_ids": [
+        "scattering"
+      ],
+      "name_en": "Droplet scattering in fog and clouds",
+      "name_zh": "雾云及米氏散射"
+    },
+    {
+      "category_id": "volumetric_sunrays",
+      "conditions_and_visible_results": [
+        {
+          "when": "Sunlight is interrupted by clouds, trees or openings and particles scatter into the view.",
+          "visible_result": "Bright shafts alternate with darker shadowed volumes."
+        },
+        {
+          "when": "Nearly parallel sunlight shafts are viewed in perspective.",
+          "visible_result": "Their projected edges may fan out from the solar direction or converge toward the antisolar direction."
+        }
+      ],
+      "non_generalization": [
+        "Projected convergence does not imply a nearby point light. Do not force every shaft toward the image center."
+      ],
+      "checkable_2d_metrics": [
+        "Trace shaft axes and visible gaps in the occluder.",
+        "Compare bright/dark band contrast and projected convergence where resolvable."
+      ],
+      "search_queries": [
+        "crepuscular anticrepuscular forest sun shafts",
+        "体积光 云隙光"
+      ],
+      "source_ids": [
+        "crepuscular"
+      ],
+      "name_en": "Volumetric sunlight and cloud rays",
+      "name_zh": "体积光与云隙光"
+    },
+    {
+      "category_id": "primary_rainbows",
+      "conditions_and_visible_results": [
+        {
+          "when": "Sunlight reaches suitable droplets opposite the observer from the Sun, with one internal reflection.",
+          "visible_result": "A primary bow can appear with red on its outer edge and violet toward its center."
+        },
+        {
+          "when": "The Sun rises higher while the same observer geometry remains.",
+          "visible_result": "The bow center lies farther below the horizon; less of the arc may be visible."
+        },
+        {
+          "when": "Droplets occupy only part of the relevant directions.",
+          "visible_result": "Only fragments of the bow appear."
+        }
+      ],
+      "non_generalization": [
+        "A bow is centered on the antisolar direction, not necessarily the image center. Do not require seven sharply separated bands or a full semicircle."
+      ],
+      "checkable_2d_metrics": [
+        "Record visible arc extent and inner/outer color ordering.",
+        "Check the relation to a visible observer shadow or other solar-direction evidence."
+      ],
+      "search_queries": [
+        "primary rainbow red outer violet inner",
+        "主虹 色序 圆弧"
+      ],
+      "source_ids": [
+        "rainbows"
+      ],
+      "name_en": "Primary rainbows",
+      "name_zh": "主虹"
+    },
+    {
+      "category_id": "secondary_supernumerary_rainbows",
+      "conditions_and_visible_results": [
+        {
+          "when": "A second internal reflection contributes enough light from droplets.",
+          "visible_result": "A fainter secondary arc can lie outside the primary, with red toward the primary and reversed color order."
+        },
+        {
+          "when": "Droplet sizes are sufficiently similar for wave interference to remain visible.",
+          "visible_result": "Additional narrow pastel bands can occur just inside the primary; these are supernumeraries."
+        },
+        {
+          "when": "Both primary and secondary are visible with adequate contrast.",
+          "visible_result": "The intervening sky can appear darker."
+        }
+      ],
+      "non_generalization": [
+        "Secondary bows and supernumerary bands are separate phenomena; neither requires the other. Do not infer droplet size numerically from uncalibrated pixels."
+      ],
+      "checkable_2d_metrics": [
+        "Count resolved arcs and compare width, radial order and colors.",
+        "Measure visible contrast of the region between primary and secondary."
+      ],
+      "search_queries": [
+        "double rainbow supernumerary pastel bands",
+        "次虹 过剩虹 暗带"
+      ],
+      "source_ids": [
+        "rainbows",
+        "supernumeraries"
+      ],
+      "name_en": "Secondary and supernumerary rainbows",
+      "name_zh": "次虹与过剩虹"
+    },
+    {
+      "category_id": "reflected_rainbows_fogbows",
+      "conditions_and_visible_results": [
+        {
+          "when": "A visible bow is viewed in a reflecting water surface.",
+          "visible_result": "A reflected image of the bow may appear within the water region."
+        },
+        {
+          "when": "Sunlight first reflects upward from smooth water and then reaches droplets.",
+          "visible_result": "A reflection rainbow can form in the sky, with different center elevation from the ordinary bow."
+        },
+        {
+          "when": "Very small droplets form a bow in fog or mist.",
+          "visible_result": "A broad pale band can have weak red outer and blue inner fringes."
+        }
+      ],
+      "non_generalization": [
+        "A reflected bow in water and a reflection bow in the sky are different paths. Fogbows need not be perfectly colorless."
+      ],
+      "checkable_2d_metrics": [
+        "Locate each arc relative to the waterline and sky.",
+        "Record band width, faint edge colors and arc-center evidence rather than assigning an unsupported path."
+      ],
+      "search_queries": [
+        "reflection rainbow reflected lake fogbow white",
+        "水面虹 雾虹"
+      ],
+      "source_ids": [
+        "reflection_rainbow",
+        "fogbow",
+        "plane_mirrors"
+      ],
+      "name_en": "Water-related rainbow paths and fogbows",
+      "name_zh": "水面相关虹与雾虹"
+    },
+    {
+      "category_id": "mirages",
+      "conditions_and_visible_results": [
+        {
+          "when": "A warm near-surface layer gives the appropriate refractive-index gradient.",
+          "visible_result": "An inferior mirage can place inverted or displaced distant detail below the ordinary view."
+        },
+        {
+          "when": "Colder surface air lies beneath warmer air with suitable viewing geometry.",
+          "visible_result": "A superior mirage can elevate, stretch or duplicate distant detail."
+        },
+        {
+          "when": "Layering is complex.",
+          "visible_result": "Stacked upright and inverted strips can occur."
+        }
+      ],
+      "non_generalization": [
+        "Water-like road patches are not actual water by definition. A mirage label cannot determine the exact temperature profile or image orientation."
+      ],
+      "checkable_2d_metrics": [
+        "Match repeated horizon landmarks and vertical strip orientation.",
+        "Record displacement, stretching and visible horizon position without recovering hidden elevations."
+      ],
+      "search_queries": [
+        "inferior superior mirage stacked ship road",
+        "海市蜃楼 倒影 分层"
+      ],
+      "source_ids": [
+        "mirage"
+      ],
+      "name_en": "Atmospheric mirages",
+      "name_zh": "海市蜃楼"
+    },
+    {
+      "category_id": "solar_refraction_green_flash",
+      "conditions_and_visible_results": [
+        {
+          "when": "A low solar disk is viewed through a vertically stratified atmosphere.",
+          "visible_result": "Differential refraction can flatten or layer its outline."
+        },
+        {
+          "when": "Dispersion and favorable near-horizon refraction separate the upper solar rim.",
+          "visible_result": "A small green upper-edge segment or detached green patch can briefly be visible."
+        }
+      ],
+      "non_generalization": [
+        "Not every sunset has a green flash. A green lens ghost elsewhere in the frame is insufficient, and duration cannot be measured from a still."
+      ],
+      "checkable_2d_metrics": [
+        "Measure disk height/width and describe resolved edge steps.",
+        "Locate any green patch relative to the solar limb; note clipping or color-fringe ambiguity."
+      ],
+      "search_queries": [
+        "flattened sunset green flash upper rim",
+        "太阳 扁平 绿闪"
+      ],
+      "source_ids": [
+        "green_flash",
+        "mirage"
+      ],
+      "name_en": "Solar refraction and green flash",
+      "name_zh": "太阳折射形变与绿闪"
+    },
+    {
+      "category_id": "eclipses",
+      "conditions_and_visible_results": [
+        {
+          "when": "The Moon covers part of the Sun from the viewing location.",
+          "visible_result": "A bitten disk or crescent is visible; near contact, lunar valleys can leave small bright beads."
+        },
+        {
+          "when": "The Moon fully covers the photosphere and exposure reveals faint surroundings.",
+          "visible_result": "A dark central disk and extended solar corona can appear; an annular phase instead retains a bright solar ring."
+        },
+        {
+          "when": "The Moon enters Earth's shadow.",
+          "visible_result": "A partial darkened region or a dim reddish lunar disk can appear."
+        }
+      ],
+      "non_generalization": [
+        "Solar corona, an atmospheric corona and an annular solar ring are different. Do not combine all eclipse phases into one ordinary instant."
+      ],
+      "checkable_2d_metrics": [
+        "Trace the occlusion boundary and visible bright limb fraction.",
+        "Describe beads, corona or lunar surface shading only when resolved."
+      ],
+      "search_queries": [
+        "solar eclipse Baily beads lunar red disk",
+        "日食 月食 贝利珠"
+      ],
+      "source_ids": [
+        "solar_eclipse",
+        "lunar_eclipse"
+      ],
+      "name_en": "Solar and lunar eclipse details",
+      "name_zh": "日月食及细节阶段"
+    },
+    {
+      "category_id": "ice_halos",
+      "conditions_and_visible_results": [
+        {
+          "when": "Sunlight or moonlight encounters suitable suspended ice crystals.",
+          "visible_result": "A ring or partial arcs can surround the source; a 22-degree halo is common."
+        },
+        {
+          "when": "A wider halo-forming crystal path is sufficiently populated.",
+          "visible_result": "A roughly 46-degree halo is possible, though many broad arcs have other identities."
+        }
+      ],
+      "non_generalization": [
+        "Pixels cannot establish angular radius without camera calibration. A small droplet corona is not automatically an ice halo; missing sectors are allowed."
+      ],
+      "checkable_2d_metrics": [
+        "Fit visible arc curvature relative to source position.",
+        "Record radial color order and completeness; report pixel radius unless angular calibration exists."
+      ],
+      "search_queries": [
+        "22 degree 46 degree sun moon halo",
+        "冰晶 日晕 月晕"
+      ],
+      "source_ids": [
+        "halo",
+        "halo_pillar"
+      ],
+      "name_en": "Ice-crystal halos",
+      "name_zh": "冰晶光晕"
+    },
+    {
+      "category_id": "pillars_parhelia_arcs",
+      "conditions_and_visible_results": [
+        {
+          "when": "Nearly horizontal ice-crystal faces reflect a low source toward the observer.",
+          "visible_result": "A vertical-looking pillar can extend from the source direction."
+        },
+        {
+          "when": "Oriented plate crystals refract sunlight along suitable paths.",
+          "visible_result": "Sundogs can appear near solar elevation on one or both sides, with red toward the Sun."
+        },
+        {
+          "when": "Plate-crystal orientation and solar elevation support the relevant path.",
+          "visible_result": "A circumzenithal arc appears high above the Sun; a circumhorizontal arc is possible with a high Sun."
+        }
+      ],
+      "non_generalization": [
+        "Do not force every subtype to coexist. Pillars are reflected-light displays, not physical upward laser columns; sundog separation varies with solar elevation."
+      ],
+      "checkable_2d_metrics": [
+        "Record spot elevation relative to the Sun and pillar direction.",
+        "Trace arc curvature and color order without guessing crystal orientation from appearance alone."
+      ],
+      "search_queries": [
+        "light pillar sundog circumzenithal circumhorizontal arc",
+        "光柱 幻日 环天顶弧"
+      ],
+      "source_ids": [
+        "halo_pillar",
+        "circumzenithal",
+        "circumhorizontal"
+      ],
+      "name_en": "Light pillars sundogs and ice arcs",
+      "name_zh": "光柱幻日与冰晶弧"
+    },
+    {
+      "category_id": "corona_glory",
+      "conditions_and_visible_results": [
+        {
+          "when": "A bright Sun or Moon is viewed through a thin layer of small particles.",
+          "visible_result": "A corona can show compact rings around the light source, with red outside each sequence."
+        },
+        {
+          "when": "The observer views droplets toward the antisolar direction with the Sun behind.",
+          "visible_result": "A glory can show colored rings around the observer's projected shadow direction."
+        },
+        {
+          "when": "An observer's shadow falls on nearby fog with suitable perspective.",
+          "visible_result": "A large Brocken spectre may appear, with or without visible glory rings."
+        }
+      ],
+      "non_generalization": [
+        "Corona and glory are on opposite source-relative viewing directions. A still cannot establish changing droplet sizes or exact particle radii."
+      ],
+      "checkable_2d_metrics": [
+        "Locate ring center relative to the luminous disk or shadow.",
+        "Count resolved rings and note colors, symmetry and visible cloud boundary."
+      ],
+      "search_queries": [
+        "corona glory Brocken spectre rings",
+        "华 佛光 布罗肯 巨影"
+      ],
+      "source_ids": [
+        "corona",
+        "glory"
+      ],
+      "name_en": "Coronas glories and Brocken spectres",
+      "name_zh": "日月华与佛光"
+    },
+    {
+      "category_id": "atmospheric_turbulence",
+      "conditions_and_visible_results": [
+        {
+          "when": "A background is seen through air with fluctuating refractive index, often above heated ground.",
+          "visible_result": "Fine edges can appear wavy, locally displaced or blurred."
+        },
+        {
+          "when": "A distant compact light is viewed through fluctuating air over time.",
+          "visible_result": "Brightness, color or apparent position can fluctuate as scintillation."
+        }
+      ],
+      "non_generalization": [
+        "A single photograph cannot demonstrate flicker or motion. Defocus, compression and camera shake can mimic some blur."
+      ],
+      "checkable_2d_metrics": [
+        "Compare local edge waviness in affected and nearby regions.",
+        "Use aligned multiple frames for variation; in a still describe only resolved distortion."
+      ],
+      "search_queries": [
+        "heat shimmer turbulence twinkling distorted background",
+        "热扰动 大气湍流 闪烁"
+      ],
+      "source_ids": [
+        "shimmer",
+        "scintillation"
+      ],
+      "name_en": "Heat shimmer and atmospheric turbulence",
+      "name_zh": "大气湍流与热扰动"
+    },
+    {
+      "category_id": "linear_polarization",
+      "conditions_and_visible_results": [
+        {
+          "when": "Two effective linear polarizers overlap with nearly crossed transmission axes.",
+          "visible_result": "The overlap can become much darker than either sheet alone."
+        },
+        {
+          "when": "Their axes are brought toward parallel alignment under the same illumination.",
+          "visible_result": "Transmission increases; intermediate orientations give intermediate brightness."
+        },
+        {
+          "when": "An analyzer views a suitable polarized display.",
+          "visible_result": "Display brightness depends on analyzer rotation."
+        }
+      ],
+      "non_generalization": [
+        "Do not infer exact polarizer angle from a dark patch. Real filters leak, and circular polarizers or intervening birefringent material change the behavior."
+      ],
+      "checkable_2d_metrics": [
+        "Compare overlap and non-overlap brightness.",
+        "For matched rotations, track the same display region with exposure fixed."
+      ],
+      "search_queries": [
+        "crossed polarizers dark overlap LCD",
+        "线偏振 交叉偏振 消光"
+      ],
+      "source_ids": [
+        "polarization"
+      ],
+      "name_en": "Linear and crossed polarization",
+      "name_zh": "线偏振与交叉偏振"
+    },
+    {
+      "category_id": "polarized_reflections",
+      "conditions_and_visible_results": [
+        {
+          "when": "A dielectric reflection is sufficiently polarized and the analyzer blocks its dominant component.",
+          "visible_result": "Water or glass glare can diminish, revealing transmitted or submerged detail."
+        },
+        {
+          "when": "Unpolarized light reflects from a dielectric near Brewster incidence.",
+          "visible_result": "The reflected light is strongly linearly polarized; analyzer orientation controls its visible strength."
+        }
+      ],
+      "non_generalization": [
+        "Do not remove all reflections by default. Metals, roughness, incidence and mixed light change suppression; exact Brewster geometry needs more than a label."
+      ],
+      "checkable_2d_metrics": [
+        "Compare glare patch contrast and underlying detail across a visible filter boundary or matched views.",
+        "Record which reflections remain instead of assuming full extinction."
+      ],
+      "search_queries": [
+        "polarizer water glare Brewster reflection",
+        "偏振反光 布儒斯特"
+      ],
+      "source_ids": [
+        "polarized_glare"
+      ],
+      "name_en": "Polarized reflections and Brewster conditions",
+      "name_zh": "偏振反光与布儒斯特条件"
+    },
+    {
+      "category_id": "birefringence_photoelasticity",
+      "conditions_and_visible_results": [
+        {
+          "when": "A birefringent crystal separates two polarization modes along suitable viewing directions.",
+          "visible_result": "Printed marks viewed through it can appear doubled."
+        },
+        {
+          "when": "A stressed transparent birefringent object is viewed between polarizers with white illumination.",
+          "visible_result": "Colored or dark fringe patterns can appear and change with stress or filter orientation."
+        }
+      ],
+      "non_generalization": [
+        "Not every transparent plastic or viewing direction gives the same pattern. Fringe colors alone do not provide a calibrated stress map."
+      ],
+      "checkable_2d_metrics": [
+        "Measure separation and orientation of duplicated marks.",
+        "Trace resolved fringe bands within the specimen and compare density near corners."
+      ],
+      "search_queries": [
+        "calcite double image plastic stress colors",
+        "双折射 光弹性 应力条纹"
+      ],
+      "source_ids": [
+        "polarization",
+        "photoelasticity"
+      ],
+      "name_en": "Birefringence and photoelasticity",
+      "name_zh": "双折射与光弹性"
+    },
+    {
+      "category_id": "thin_film_interference",
+      "conditions_and_visible_results": [
+        {
+          "when": "Light reflected from the two film boundaries remains coherent over their path difference.",
+          "visible_result": "Some wavelengths reinforce and others weaken; white light can show colored patches."
+        },
+        {
+          "when": "Film thickness or viewing angle varies across the surface.",
+          "visible_result": "Color bands or gradients can change across a soap film or oil layer."
+        },
+        {
+          "when": "A soap film is extremely thin with the usual single phase reversal.",
+          "visible_result": "Reflected visible light can be strongly suppressed, giving a dark patch."
+        }
+      ],
+      "non_generalization": [
+        "No fixed rainbow order or color-to-thickness mapping applies without optical indices, angle and interference order."
+      ],
+      "checkable_2d_metrics": [
+        "Trace observed color bands and dark regions along the film.",
+        "Separate film colors from a specular image of the environment."
+      ],
+      "search_queries": [
+        "soap bubble oil film interference colors",
+        "薄膜干涉 皂膜 油膜"
+      ],
+      "source_ids": [
+        "films"
+      ],
+      "name_en": "Thin-film interference",
+      "name_zh": "薄膜干涉"
+    },
+    {
+      "category_id": "newton_rings",
+      "conditions_and_visible_results": [
+        {
+          "when": "A smoothly curved lens nearly contacts a flat plate, leaving a thin gap viewed in reflection.",
+          "visible_result": "Concentric interference rings can surround the contact region."
+        },
+        {
+          "when": "The ideal air-gap contact is illuminated monochromatically with the usual reflection phase reversal.",
+          "visible_result": "The center is dark; ring spacing generally decreases toward larger radius."
+        },
+        {
+          "when": "White light or imperfect contact replaces the ideal setup.",
+          "visible_result": "Colored or distorted fringes may occur and center appearance can change."
+        }
+      ],
+      "non_generalization": [
+        "Do not identify every circular colored mark as Newton rings, or require a dark center in transmitted light."
+      ],
+      "checkable_2d_metrics": [
+        "Fit ring centers and compare successive radial spacings.",
+        "Describe ring color and center brightness without assigning gap thickness."
+      ],
+      "search_queries": [
+        "Newton rings lens plate concentric fringes",
+        "牛顿环 接触间隙"
+      ],
+      "source_ids": [
+        "films"
+      ],
+      "name_en": "Newton rings and contact-gap interference",
+      "name_zh": "牛顿环与接触间隙干涉"
+    },
+    {
+      "category_id": "slit_interference_diffraction",
+      "conditions_and_visible_results": [
+        {
+          "when": "Coherent light passes through a narrow slit and is observed in the far-field regime.",
+          "visible_result": "A broad central maximum and weaker side maxima can be resolved."
+        },
+        {
+          "when": "Two mutually coherent slits contribute light to the same far-field screen.",
+          "visible_result": "Repeated narrow bright/dark fringes sit within a broader diffraction envelope."
+        },
+        {
+          "when": "Slit width decreases with wavelength and screen distance fixed.",
+          "visible_result": "The single-slit pattern spreads more widely."
+        }
+      ],
+      "non_generalization": [
+        "Do not require identical fringe strengths or a rainbow under monochromatic light. A close screen or poor coherence changes the pattern."
+      ],
+      "checkable_2d_metrics": [
+        "Plot a screen-space intensity profile normal to the fringes.",
+        "Compare central width, fringe spacing and outer-envelope decay."
+      ],
+      "search_queries": [
+        "single double slit diffraction interference screen",
+        "单缝 双缝 衍射 干涉"
+      ],
+      "source_ids": [
+        "single_slit",
+        "double_slit"
+      ],
+      "name_en": "Slit interference and aperture diffraction",
+      "name_zh": "狭缝干涉与衍射"
+    },
+    {
+      "category_id": "diffraction_gratings",
+      "conditions_and_visible_results": [
+        {
+          "when": "Coherent monochromatic light encounters a periodic grating in suitable geometry.",
+          "visible_result": "Discrete diffraction orders may appear as separated bright spots."
+        },
+        {
+          "when": "Broadband light illuminates a grating and different wavelengths are spatially resolved.",
+          "visible_result": "Repeated spectral bands can appear in nonzero orders."
+        },
+        {
+          "when": "An order cannot propagate or falls outside the field.",
+          "visible_result": "That order is absent from the image."
+        }
+      ],
+      "non_generalization": [
+        "Do not demand symmetric screen positions for arbitrary oblique incidence. Curved CD tracks and broad illumination can produce arcs rather than straight spectra."
+      ],
+      "checkable_2d_metrics": [
+        "Count visible orders and record their arrangement.",
+        "Measure wavelength-color sequence only within a resolved order."
+      ],
+      "search_queries": [
+        "CD grating separated spectra laser orders",
+        "光栅 衍射 光谱 级次"
+      ],
+      "source_ids": [
+        "gratings"
+      ],
+      "name_en": "Diffraction gratings",
+      "name_zh": "光栅衍射"
+    },
+    {
+      "category_id": "structural_color",
+      "conditions_and_visible_results": [
+        {
+          "when": "Microscopic structure selectively reflects visible wavelengths.",
+          "visible_result": "A surface can show saturated colors without those colors being solely pigment absorption."
+        },
+        {
+          "when": "An ordered structure is angle-sensitive and orientation changes across a visible surface.",
+          "visible_result": "Neighboring regions can show different hues or brightness."
+        },
+        {
+          "when": "Structural organization is less directionally ordered.",
+          "visible_result": "Structural color may remain comparatively stable with angle."
+        }
+      ],
+      "non_generalization": [
+        "Iridescence is not required for all structural color. A single photo cannot prove the nanostructure or exclude mixed pigment contributions."
+      ],
+      "checkable_2d_metrics": [
+        "Map visible color patches to feather, scale or shell contours.",
+        "Compare hues across known view angles only when matched views exist."
+      ],
+      "search_queries": [
+        "peacock butterfly opal structural iridescence",
+        "结构色 鸟羽 蝶翅"
+      ],
+      "source_ids": [
+        "structural",
+        "structural_disordered"
+      ],
+      "name_en": "Biological and material structural color",
+      "name_zh": "生物与材料结构色"
+    },
+    {
+      "category_id": "aperture_starbursts",
+      "conditions_and_visible_results": [
+        {
+          "when": "A small bright source is imaged through an aperture with pronounced edges.",
+          "visible_result": "Diffraction can produce narrow spikes centered on the source."
+        },
+        {
+          "when": "Telescope support struts or segmented aperture edges contribute diffraction.",
+          "visible_result": "Spike directions and overlaps reflect those structures; different instruments give different patterns."
+        }
+      ],
+      "non_generalization": [
+        "Spikes are image-formation effects, not physical rays from the lamp. Do not infer an exact blade count without checking symmetry and alternative filters."
+      ],
+      "checkable_2d_metrics": [
+        "Count resolved spikes and measure their angles around a common source center.",
+        "Compare spike orientation across multiple point sources in one image."
+      ],
+      "search_queries": [
+        "aperture starburst telescope diffraction spikes",
+        "光圈 星芒 衍射尖刺"
+      ],
+      "source_ids": [
+        "spikes",
+        "starburst"
+      ],
+      "name_en": "Aperture starbursts and diffraction spikes",
+      "name_zh": "光圈星芒与衍射尖刺"
+    },
+    {
+      "category_id": "aberrations_distortions",
+      "conditions_and_visible_results": [
+        {
+          "when": "A lens images wavelengths with unequal focal positions or magnifications.",
+          "visible_result": "Colored edge fringes or color-dependent blur may appear."
+        },
+        {
+          "when": "Off-axis aberrations are appreciable.",
+          "visible_result": "Point sources near image edges may have asymmetric tails or elongated shapes."
+        },
+        {
+          "when": "Lens magnification changes with field radius.",
+          "visible_result": "Straight scene lines can bow into barrel or pincushion distortion."
+        }
+      ],
+      "non_generalization": [
+        "Perspective convergence is not itself lens distortion. Color fringes can also be processing artifacts; the category does not fix fringe colors or bow direction."
+      ],
+      "checkable_2d_metrics": [
+        "Measure colored-edge separation at high-contrast boundaries.",
+        "Compare point-source shapes across the frame and trace known straight lines."
+      ],
+      "search_queries": [
+        "chromatic aberration coma barrel pincushion",
+        "色差 彗差 几何畸变"
+      ],
+      "source_ids": [
+        "aberrations"
+      ],
+      "name_en": "Lens aberrations and geometric distortions",
+      "name_zh": "镜头像差与几何畸变"
+    },
+    {
+      "category_id": "depth_of_field_focus",
+      "conditions_and_visible_results": [
+        {
+          "when": "A lens is focused on one scene depth and other depths lie outside acceptable focus.",
+          "visible_result": "Some surfaces retain crisp detail while others become blurred."
+        },
+        {
+          "when": "The aperture is reduced with other imaging conditions fixed.",
+          "visible_result": "Geometric depth of field generally increases, while sufficiently strong diffraction limits fine detail."
+        },
+        {
+          "when": "Small bright sources are out of focus.",
+          "visible_result": "They can form extended aperture-shaped blur patches."
+        }
+      ],
+      "non_generalization": [
+        "Blur alone does not prove depth or a specific f-number. Motion, aberrations and processing can mimic defocus."
+      ],
+      "checkable_2d_metrics": [
+        "Compare edge-spread width and fine texture on visible scene surfaces.",
+        "Record blur-patch shape and size without assigning a hidden focus distance."
+      ],
+      "search_queries": [
+        "shallow depth field sharp foreground bokeh",
+        "景深 焦平面 失焦"
+      ],
+      "source_ids": [
+        "focus"
+      ],
+      "name_en": "Depth of field focus planes and defocus",
+      "name_zh": "景深焦平面与失焦"
+    },
+    {
+      "category_id": "lens_flare_ghosts",
+      "conditions_and_visible_results": [
+        {
+          "when": "Intense light reaches an imaging system and reflects between internal surfaces.",
+          "visible_result": "Faint displaced spots, rings or aperture-like ghost images can appear."
+        },
+        {
+          "when": "Stray light is spread across the sensor by the optical system.",
+          "visible_result": "A veiling glow can lower local contrast, especially near a bright source."
+        }
+      ],
+      "non_generalization": [
+        "Ghost count, color and placement depend on the system; the light source can lie outside the frame. Do not describe ghosts as physical objects in the scene."
+      ],
+      "checkable_2d_metrics": [
+        "Locate translucent spots relative to visible light sources and the frame.",
+        "Compare contrast within and outside the veil while noting saturation."
+      ],
+      "search_queries": [
+        "lens flare polygon ghosts veiling glare",
+        "镜头眩光 鬼影"
+      ],
+      "source_ids": [
+        "flare"
+      ],
+      "name_en": "Lens flare and ghosts",
+      "name_zh": "镜头眩光与鬼影"
+    }
+  ]
+}

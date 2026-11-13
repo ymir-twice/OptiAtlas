@@ -1,0 +1,2 @@
+- name: optical_agent
+  _target_: optics_agent_rl.agent_loop.OpticalAgentLoop

@@ -1,0 +1,116 @@
+{
+  "model": {
+    "name": "qwen_image21",
+    "model_path": "${paths.generator_base}",
+    "revision": null,
+    "transformer_path": null,
+    "lora_path": null,
+    "max_caption_tokens": 4096,
+    "gradient_checkpointing": true,
+    "text_encoder_offload": false,
+    "condition_cache_size": 512,
+    "vae_decode_batch_size": 0,
+    "sigma_sampling": "uniform",
+    "logit_mean": 0.0,
+    "logit_std": 1.0,
+    "resize_mode": "letterbox",
+    "max_crop_fraction": 0.1,
+    "local_files_only": true
+  },
+  "algorithm": {
+    "name": "flow_matching"
+  },
+  "finetune": {
+    "mode": "lora",
+    "lora": {
+      "rank": 32,
+      "alpha": 64,
+      "dropout": 0
+    }
+  },
+  "reward": {
+    "name": "clip_similarity",
+    "kind": "clip_cosine",
+    "model_name": "openai/clip-vit-large-patch14",
+    "revision": null,
+    "text_strategy": "chunk_mean",
+    "window_overlap": 0,
+    "text_batch_size": 32,
+    "cache_size": 512,
+    "image_strategy": "full_resize",
+    "local_files_only": false
+  },
+  "task": "train",
+  "experiment_name": "qwen_image21_fm",
+  "output_dir": "${paths.output}/pair_fm",
+  "resume": null,
+  "data": {
+    "path": "${paths.pair_train}",
+    "split": "train",
+    "max_pixels": 1048576,
+    "hash_images": true
+  },
+  "evaluation": {
+    "enabled": false,
+    "path": null,
+    "split": "validation",
+    "samples_per_rank": 2,
+    "seed": 1729,
+    "sigmas": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "max_pixels": null
+  },
+  "training": {
+    "device": "cuda",
+    "precision": "bf16",
+    "seed": 42,
+    "batch_size": 2,
+    "condition_dropout": 0.1,
+    "num_epochs": 2,
+    "max_steps": 868,
+    "gradient_accumulation": 2,
+    "max_grad_norm": 1.0,
+    "save_steps": 100,
+    "save_each_epoch": true,
+    "export": true
+  },
+  "optimizer": {
+    "name": "adamw",
+    "lr": 2e-06,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.01,
+    "warmup_steps": 50,
+    "schedule": "constant",
+    "aux_adamw_lr": null,
+    "momentum": 0.95,
+    "nesterov": true,
+    "ns_steps": 5,
+    "muon_lr_adjustment": "match_rms_adamw"
+  },
+  "distributed": {
+    "mode": "ddp",
+    "expected_world_size": 8
+  },
+  "logging": {
+    "progress_interval_seconds": 10,
+    "wandb": {
+      "enabled": false,
+      "project": "Draw-Align-SFT",
+      "name": null,
+      "mode": "offline"
+    }
+  },
+  "release_dataset": {
+    "variant": "agent",
+    "caption_field": "caption"
+  }
+}

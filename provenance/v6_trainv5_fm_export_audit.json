@@ -1,0 +1,18 @@
+{
+  "requested_export": "${OPTIATLAS_ARTIFACTS}/Draw-Align-SFT/output/light-omni-training-v5/qwen_image21_fm/20261022T145248947213Z/runs/train/model",
+  "canonical_checkpoint": "${OPTIATLAS_ARTIFACTS}/Draw-Align-SFT/output/light-omni-training-v5/qwen_image21_fm/20261022T145248947213Z/runs/train/checkpoints/step_00000868",
+  "state_sha256": "8ed8a80649fef6ba2c481db86fa3abde1919b4f75bbfbfa0362c9ee7ac0f5faf",
+  "export_weights_sha256": "0011946081a706f9efabb3409daacf228d5eef917eec65428751daf765f6689c",
+  "export_metadata_sha256": "f44a62838a91ed2236d8f8f2db451aa0f651f90d9816948740bba234c201ab49",
+  "export_adapter_config_sha256": "81b7bcb3a15f46d32ea995044643c4e77f6a0c352f225c62661cd4ebab75cd63",
+  "complete_sha256": "c38560330d07144bc8792c207cafdbfa3c839613220f42bb07f31887bbb83538",
+  "resolved_config_sha256": "0a35d6b4821f0640b8ea2e8ffa0432b97e105c9696138a44ba8f16b2c7b41ea7",
+  "all_tensors_exact_equal": true,
+  "tensor_count": 256,
+  "tensor_dtype": "float32",
+  "lora_rank": 32,
+  "lora_alpha": 64.0,
+  "lora_scale": 2.0,
+  "step": 868,
+  "data_epochs_completed": 2
+}

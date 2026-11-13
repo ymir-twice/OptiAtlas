@@ -1,0 +1,879 @@
+{
+  "schema_version": 1,
+  "taxonomy_version": "agent_categories_v3_37_v1",
+  "excluded_categories": [
+    "shadow_multiple"
+  ],
+  "generation_defaults": {
+    "single_photograph": "One physically possible real or documentary photograph. A photographed laboratory setup is allowed when honestly identified; no diagrams, collages, animation, or artificial optical overlays.",
+    "prompt_scope": "Describe causal scene conditions and the intended phenomenon, not the predicted optical answer. Generate independent scenes without evaluation examples or scoring rubrics.",
+    "hidden_check": "Exactly one short observable optical check is auxiliary metadata, separate from the user request and exported training prompt.",
+    "classification": "Choose the dominant intended physical phenomenon and record one listed subphenomenon. Neighboring effects may coexist but must not replace the target."
+  },
+  "categories": [
+    {
+      "id": "birefringence",
+      "name_zh": "双折射与窗体应力彩纹",
+      "name_en": "Birefringence and transparent-material anisotropy",
+      "includes": [
+        "Polarization-dependent stress or layer anisotropy in transparent glazing and polymer materials.",
+        "Photographable photoelastic color or intensity patterns under suitable illumination and analysis."
+      ],
+      "excludes": [
+        "Uniform tint, colored scene reflections, paint and unsupported rainbow patterns in bare transparent material.",
+        "A calcite double image alone as a substitute for the stress-pattern subphenomena of this category."
+      ],
+      "subphenomena": [
+        "glazing_stress_anisotropy",
+        "polymer_stress_birefringence",
+        "layer_birefringence",
+        "photoelastic_intensity_pattern"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify a plausible birefringent or stressed transparent material and suitable polarization conditions.",
+        "Patterns need not universally be straight, smooth, monochromatic or free of swirls; appearance depends on stress, thickness and polarization.",
+        "Do not copy a desired pattern into the user prompt or treat a particular artistic pattern as a universal optical law."
+      ]
+    },
+    {
+      "id": "caustics",
+      "name_zh": "折射与反射焦散",
+      "name_en": "Refractive and reflective caustics",
+      "includes": [
+        "Concentrated light networks, curves or cusps on a receiving surface after refraction or curved-surface reflection."
+      ],
+      "excludes": [
+        "Surface glints aimed at the camera, aperture light patches, printed patterns and self-emission."
+      ],
+      "subphenomena": [
+        "water_surface_caustic",
+        "transparent_object_caustic",
+        "reflective_caustic"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Include a feasible source, shaping surface and receiver.",
+        "Caustics need not be colored; bright surface reflection alone does not establish focusing onto a receiver."
+      ]
+    },
+    {
+      "id": "corona",
+      "name_zh": "日华、月华与灯华",
+      "name_en": "Light-source coronas",
+      "includes": [
+        "Compact diffraction rings close to the apparent Sun, Moon or another source through small droplets."
+      ],
+      "excludes": [
+        "Antisolar glories, large ice halos, lens ghosts and the solar plasma corona."
+      ],
+      "subphenomena": [
+        "solar_corona",
+        "lunar_corona",
+        "artificial_light_corona"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Place the phenomenon around the viewed light source with a plausible thin droplet layer.",
+        "Do not use an observer shadow to identify a source-centered corona."
+      ]
+    },
+    {
+      "id": "curved_mirrors",
+      "name_zh": "日常曲面镜成像",
+      "name_en": "Curved mirror imaging",
+      "includes": [
+        "Convex or concave mirror images whose scale or deformation depends on surface shape and object position.",
+        "Real object images formed by concave mirrors on a receiver."
+      ],
+      "excludes": [
+        "Lens refraction, full-frame fisheye projection and bright caustics without object imaging."
+      ],
+      "subphenomena": [
+        "convex_mirror",
+        "concave_virtual_image",
+        "concave_real_image",
+        "cylindrical_mirror"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Make the reflective surface and reference object identifiable.",
+        "Specify feasible object and viewing placement without prescribing image orientation or size."
+      ]
+    },
+    {
+      "id": "diffraction_spikes",
+      "name_zh": "摄影星芒与衍射尖刺",
+      "name_en": "Aperture diffraction spikes",
+      "includes": [
+        "Spikes around source images caused by aperture edges, slits or telescope support structures."
+      ],
+      "excludes": [
+        "Actual rays through scattering media, off-source lens ghosts, sensor blooming and decorative light patterns."
+      ],
+      "subphenomena": [
+        "polygonal_aperture_spikes",
+        "support_vane_spikes",
+        "slit_or_edge_diffraction"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify a compact source and a relevant optical aperture or obstruction.",
+        "Spike count alone does not uniquely determine a physical blade count."
+      ]
+    },
+    {
+      "id": "dispersion",
+      "name_zh": "折射色散",
+      "name_en": "Prism and wavelength dispersion",
+      "includes": [
+        "Wavelength-dependent refraction separating or redirecting different colors."
+      ],
+      "excludes": [
+        "Water-drop rainbows, grating spectra, thin-film interference, absorption coloring and lens color fringes alone."
+      ],
+      "subphenomena": [
+        "white_light_dispersion",
+        "wavelength_dependent_deflection",
+        "combined_prism_dispersion"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify a suitable transparent dispersive medium, source spectrum and observable transmitted path or receiver.",
+        "Do not prescribe the resulting color order or angular displacement in the user request."
+      ]
+    },
+    {
+      "id": "focus_depth",
+      "name_zh": "景深与失焦",
+      "name_en": "Depth of field and defocus",
+      "includes": [
+        "Selective focus, foreground or background defocus, bokeh and tilted focus planes."
+      ],
+      "excludes": [
+        "A generically sharp photograph, motion smear, fog attenuation, translucent scattering and heat distortion."
+      ],
+      "subphenomena": [
+        "selective_focus",
+        "foreground_background_defocus",
+        "bokeh",
+        "tilted_focus_plane"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify the intended focus target and meaningful scene depth without prescribing the evaluated optical result.",
+        "Keep defocus separate from exposure-time motion effects."
+      ]
+    },
+    {
+      "id": "geometric_distortion",
+      "name_zh": "几何镜头畸变",
+      "name_en": "Geometric lens distortion",
+      "includes": [
+        "Barrel, pincushion and fisheye image mapping with visible geometric references."
+      ],
+      "excludes": [
+        "Perspective convergence, naturally curved objects, local vessel refraction and turbulent warping."
+      ],
+      "subphenomena": [
+        "barrel_distortion",
+        "pincushion_distortion",
+        "fisheye_mapping"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Provide identifiable lines or spatial structure and an appropriate optical system.",
+        "A wide-angle view need not have barrel distortion; do not equate perspective with lens distortion."
+      ]
+    },
+    {
+      "id": "grating_diffraction",
+      "name_zh": "周期结构衍射",
+      "name_en": "Grating diffraction",
+      "includes": [
+        "Diffraction orders, spectra or spot patterns produced by periodic grooves, slits or grids."
+      ],
+      "excludes": [
+        "Thin-film color, prism dispersion, printed color and sensor sampling moire."
+      ],
+      "subphenomena": [
+        "transmission_grating",
+        "reflection_grating",
+        "grooved_disc",
+        "periodic_grid",
+        "diffractive_security_surface"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Identify a plausible periodic structure and source spectrum.",
+        "Do not prescribe color ordering, order spacing or a uniform full rainbow across every part of the surface."
+      ]
+    },
+    {
+      "id": "horizon_sun",
+      "name_zh": "地平线天体折射",
+      "name_en": "Horizon celestial refraction",
+      "includes": [
+        "Low-altitude solar or lunar disk deformation, atmospheric color rims, green flashes and celestial mirages."
+      ],
+      "excludes": [
+        "An ordinary orange sunset without refractive disk features, size illusion and off-disk lens ghosts."
+      ],
+      "subphenomena": [
+        "disk_flattening",
+        "layered_celestial_mirage",
+        "atmospheric_color_rim",
+        "green_flash"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Use a low-altitude celestial source and plausible atmospheric layering.",
+        "A single photograph can record a visible rim feature but cannot establish its duration or time evolution."
+      ]
+    },
+    {
+      "id": "ice_halos",
+      "name_zh": "日月晕",
+      "name_en": "Solar and lunar ice halos",
+      "includes": [
+        "Ice-crystal halo rings and partial arcs around the Sun or Moon."
+      ],
+      "excludes": [
+        "Small droplet diffraction coronas, parhelia and oriented crystal arcs as the primary subject, and lens ring ghosts."
+      ],
+      "subphenomena": [
+        "inner_ice_halo",
+        "outer_ice_halo",
+        "partial_ice_halo",
+        "combined_ice_halos"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Provide appropriate high ice clouds and source geometry.",
+        "Cloud coverage can interrupt a halo; do not force a complete uniform circle."
+      ]
+    },
+    {
+      "id": "internal_reflection",
+      "name_zh": "全反射与斯涅尔窗",
+      "name_en": "Total internal reflection and Snell windows",
+      "includes": [
+        "Total internal reflection at high-to-low refractive-index interfaces.",
+        "Underwater Snell-window views and internally guided light."
+      ],
+      "excludes": [
+        "Air-side reflections on water, circular frames and wide-angle skies without the required interface geometry."
+      ],
+      "subphenomena": [
+        "underwater_snell_window",
+        "internal_surface_reflection",
+        "prism_total_reflection",
+        "solid_light_guiding"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Light must reach the boundary from the higher-index medium under appropriate incidence conditions.",
+        "Outside a Snell window the observer can still see reflected underwater surroundings."
+      ]
+    },
+    {
+      "id": "lens_flare",
+      "name_zh": "镜头鬼影与眩光",
+      "name_en": "Lens flare and ghosts",
+      "includes": [
+        "Lens-internal ghost images, aperture-shaped stray patches and veiling glare from strong illumination."
+      ],
+      "excludes": [
+        "Scene reflections, volume light shafts, droplet coronas, bokeh and aperture diffraction spikes alone."
+      ],
+      "subphenomena": [
+        "ghost_images",
+        "aperture_ghosts",
+        "veiling_glare"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify a feasible strong-light direction relative to the camera and a scene that supports inspecting stray light.",
+        "Do not invent physical objects or emitted beams to explain lens artifacts."
+      ]
+    },
+    {
+      "id": "lens_virtual",
+      "name_zh": "放大镜与眼镜虚像",
+      "name_en": "Virtual lens imaging",
+      "includes": [
+        "Virtual imaging through positive magnifiers within the focal range and negative spectacle lenses."
+      ],
+      "excludes": [
+        "Real images projected onto a screen, compound microscopes or telescopes, and ordinary curved vessels."
+      ],
+      "subphenomena": [
+        "positive_lens_virtual_image",
+        "negative_lens_virtual_image",
+        "lens_edge_correspondence"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify a plausible lens type and object placement while leaving the resulting scale and orientation to optical reasoning."
+      ]
+    },
+    {
+      "id": "light_pillars",
+      "name_zh": "日月与人造光柱",
+      "name_en": "Light pillars",
+      "includes": [
+        "Vertical-looking bands caused by reflection from suitably oriented atmospheric ice crystals."
+      ],
+      "excludes": [
+        "Searchlight beams, aurora, sensor smear and elongated reflections on water."
+      ],
+      "subphenomena": [
+        "solar_pillar",
+        "lunar_pillar",
+        "artificial_light_pillar",
+        "multiple_source_pillars"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify a plausible ice-crystal environment and light source.",
+        "Pillars are an apparent reflection geometry, not literal upward columns of emitted light."
+      ]
+    },
+    {
+      "id": "long_exposure",
+      "name_zh": "长曝光、运动模糊与闪光拖尾",
+      "name_en": "Long exposure, motion blur and flash trails",
+      "includes": [
+        "Photographable exposure-time integration of moving subjects, light sources or fluids.",
+        "Relative camera tracking and subject motion, and flash-frozen detail combined with ambient exposure trails."
+      ],
+      "excludes": [
+        "Defocus alone, atmospheric turbulence, repeated-image composites, animation and digitally drawn motion lines."
+      ],
+      "subphenomena": [
+        "fixed_camera_motion_integration",
+        "moving_light_trails",
+        "fluid_exposure_integration",
+        "camera_tracking",
+        "rotational_motion",
+        "flash_and_ambient_motion"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Use one continuous, physically plausible exposure and specify camera support or tracking when it matters.",
+        "Flash trails require both a brief flash contribution and ambient exposure; do not demand a flash effect without suitable light.",
+        "Do not prescribe the resulting blur direction or path; leave it to the actual camera and subject motion.",
+        "Long exposure need not blur stationary objects, and camera tracking does not make every subject part equally sharp."
+      ]
+    },
+    {
+      "id": "mie",
+      "name_zh": "云雾与米氏散射",
+      "name_en": "Cloud and fog scattering",
+      "includes": [
+        "Cloud or fog droplet scattering, forward glow and loss of contrast through a droplet-filled path."
+      ],
+      "excludes": [
+        "Defocused point lights, lens contamination, white solid surfaces and resolved diffraction coronas."
+      ],
+      "subphenomena": [
+        "fog_attenuation",
+        "droplet_forward_scattering",
+        "cloud_illumination",
+        "sea_spray_scattering"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Make the atmospheric medium and its illumination evident; do not substitute camera blur for fog."
+      ]
+    },
+    {
+      "id": "mirage",
+      "name_zh": "蜃景",
+      "name_en": "Inferior, superior and complex mirages",
+      "includes": [
+        "Atmospheric refractive layering that produces displaced, inverted, stacked or stretched distant-object images."
+      ],
+      "excludes": [
+        "Real water reflections, local random heat distortion alone and anomalous solar or lunar disks."
+      ],
+      "subphenomena": [
+        "inferior_mirage",
+        "superior_mirage",
+        "complex_layered_mirage"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Supply plausible thermal layering and a sufficiently distant reference object.",
+        "Separate a stable layered mirage from turbulent shimmer, although both may coexist."
+      ]
+    },
+    {
+      "id": "multiple_mirrors",
+      "name_zh": "多镜面与多次反射",
+      "name_en": "Multiple mirror reflection",
+      "includes": [
+        "Successive reflections between distinct mirrors, recursive images, angled-mirror repetitions and folded viewing paths."
+      ],
+      "excludes": [
+        "Two coplanar mirrors alone, copied objects, screens, multiple shadows and lens ghosts."
+      ],
+      "subphenomena": [
+        "parallel_mirror_recursion",
+        "angled_mirror_images",
+        "partly_transmitting_mirror",
+        "folded_mirror_view"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify which surfaces take part in successive reflections.",
+        "Do not equate visible image count with a universal formula when field of view or occlusion changes."
+      ]
+    },
+    {
+      "id": "natural_refraction",
+      "name_zh": "自然折射与表观深度",
+      "name_en": "Refraction and apparent displacement",
+      "includes": [
+        "Apparent displacement or deformation across refractive interfaces, submerged-object depth and curved transparent vessels.",
+        "Visible interface refraction and parallel-slab displacement."
+      ],
+      "excludes": [
+        "Ordinary surface reflection, dedicated virtual-image lenses and total internal reflection as the main effect."
+      ],
+      "subphenomena": [
+        "cross_interface_displacement",
+        "apparent_depth",
+        "curved_vessel_refraction",
+        "parallel_slab_refraction",
+        "index_matching"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Identify the relevant transparent media, interface and reference object.",
+        "A curved vessel can have different imaging behavior in different directions; do not impose a universal inversion or magnification."
+      ]
+    },
+    {
+      "id": "optical_glory",
+      "name_zh": "宝光与布罗肯现象",
+      "name_en": "Glories and Brocken spectres",
+      "includes": [
+        "Compact colored rings around the antisolar direction in cloud or mist.",
+        "Brocken shadow projections on cloud or mist, including cases without resolved colored rings."
+      ],
+      "excludes": [
+        "Source-centered coronas, broad fogbows and ordinary shadows on a solid surface."
+      ],
+      "subphenomena": [
+        "glory_rings",
+        "brocken_spectre",
+        "combined_glory_and_spectre"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Put the illumination behind the observer relative to the cloud or mist screen.",
+        "Label a shadow-only Brocken scene separately; a shadow alone does not establish colored glory rings."
+      ]
+    },
+    {
+      "id": "parhelia",
+      "name_zh": "幻日与定向冰晶弧",
+      "name_en": "Parhelia and oriented ice-crystal arcs",
+      "includes": [
+        "Parhelia, circumzenithal arcs and circumhorizontal arcs produced by oriented ice crystals."
+      ],
+      "excludes": [
+        "Arbitrary colored clouds, ordinary rainbows, complete halo rings alone and vertical light pillars."
+      ],
+      "subphenomena": [
+        "parhelion",
+        "circumzenithal_arc",
+        "circumhorizontal_arc"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Choose solar elevation and crystal conditions appropriate to the intended subphenomenon.",
+        "Do not force paired parhelia, equal brightness or a generic arc location shared by all subtypes."
+      ]
+    },
+    {
+      "id": "particle_scattering",
+      "name_zh": "颗粒散射与丁达尔效应",
+      "name_en": "Particle scattering and Tyndall effect",
+      "includes": [
+        "Particles or colloids making an illuminated path visible within a scattering medium."
+      ],
+      "excludes": [
+        "Glass-surface highlights, visible apparatus without a scattering path, and generic blue sky."
+      ],
+      "subphenomena": [
+        "aerosol_beam_scattering",
+        "liquid_colloid_scattering",
+        "localized_particle_boundary"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Identify the particles or suspension and a feasible illumination path.",
+        "Use this category when the medium and local scattering are central; use volumetric for the spatial beam or shadow geometry."
+      ]
+    },
+    {
+      "id": "plane_mirror",
+      "name_zh": "平面镜成像",
+      "name_en": "Plane mirror imaging",
+      "includes": [
+        "Recognizable virtual images in a planar mirror with object identity, viewpoint and occlusion relationships.",
+        "Separate coplanar mirror fragments showing parts of the same view."
+      ],
+      "excludes": [
+        "Ordinary water or glossy-surface reflections without an explicit planar mirror.",
+        "Successive reflections between different mirrors and curved-mirror imaging."
+      ],
+      "subphenomena": [
+        "object_image_correspondence",
+        "mirror_field_of_view",
+        "mirror_occlusion",
+        "coplanar_fragments"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Use one coherent viewpoint and specify the mirror plane, real objects and relevant occluders.",
+        "Do not prescribe a reflected pose or assume screen-space left-right reversal without geometry."
+      ]
+    },
+    {
+      "id": "primary_rainbow",
+      "name_zh": "主虹",
+      "name_en": "Primary rainbows",
+      "includes": [
+        "Primary bows formed by illuminated rain, spray or water droplets, including partial and circular views."
+      ],
+      "excludes": [
+        "Solar-side ice halos, small observer-centered glories, prism spectra and colored artificial overlays."
+      ],
+      "subphenomena": [
+        "rain_primary_bow",
+        "spray_primary_bow",
+        "partial_primary_bow",
+        "circular_primary_bow"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Arrange the observer, source and droplet region plausibly.",
+        "Do not require a complete arc when droplets or the field of view cover only a portion."
+      ]
+    },
+    {
+      "id": "rayleigh",
+      "name_zh": "瑞利散射与空气透视",
+      "name_en": "Rayleigh scattering and aerial perspective",
+      "includes": [
+        "Short-wavelength atmospheric scattering, long-path sky color and distance-dependent aerial perspective."
+      ],
+      "excludes": [
+        "Blue object pigment, arbitrary color grading, shallow focus and dense white fog alone."
+      ],
+      "subphenomena": [
+        "clear_sky_color",
+        "long_atmospheric_path",
+        "aerial_perspective"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Provide atmospheric illumination or distance context; a blue background alone is not evidence.",
+        "Avoid claiming a scattering mechanism solely from a material color."
+      ]
+    },
+    {
+      "id": "reflected_rainbows",
+      "name_zh": "反射虹、倒影虹与高阶虹",
+      "name_en": "Reflection, reflected and higher-order rainbows",
+      "includes": [
+        "Rainbows formed with sunlight first reflected by a water surface.",
+        "Rainbows seen as reflections in water.",
+        "Third- and fourth-order droplet rainbows, including photographable controlled droplet effects."
+      ],
+      "excludes": [
+        "Generic water reflections, supernumerary fringes, ordinary double rainbows and lens ghosts."
+      ],
+      "subphenomena": [
+        "reflection_bow",
+        "water_reflected_bow",
+        "third_order_bow",
+        "fourth_order_bow"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Distinguish reflection before rainbow formation from reflection of the already formed rainbow.",
+        "Higher-order bows require their own droplet and source-view geometry; a water mirror is not evidence of higher order.",
+        "Do not prescribe a guaranteed strong visible bow when the scene lacks enough contrast or droplet extent."
+      ]
+    },
+    {
+      "id": "retroreflection",
+      "name_zh": "回归反射",
+      "name_en": "Retroreflection",
+      "includes": [
+        "Passive materials returning illumination preferentially toward the source, observed near the illumination axis."
+      ],
+      "excludes": [
+        "Ordinary specular highlights, self-emitting lamps, LEDs and fluorescent color alone."
+      ],
+      "subphenomena": [
+        "beaded_retroreflectors",
+        "prismatic_retroreflectors",
+        "retroreflective_textiles",
+        "retroreflective_markings"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Provide plausible near-observer illumination and a distinguishable passive reflective material.",
+        "Do not require every surface to brighten identically or reinterpret reflective material as a light source."
+      ]
+    },
+    {
+      "id": "secondary_rainbow",
+      "name_zh": "次虹、双虹与暗带",
+      "name_en": "Secondary and double rainbows",
+      "includes": [
+        "Secondary bows, primary-secondary pairs and the darker region between them."
+      ],
+      "excludes": [
+        "Fine supernumerary fringes, water reflections of a primary bow and bows caused by a separate reflected light source."
+      ],
+      "subphenomena": [
+        "secondary_bow",
+        "primary_secondary_pair",
+        "interbow_dark_region"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify rain or spray and plausible source-observer geometry.",
+        "Do not prescribe color reversal, relative radius or uniform visibility in the user prompt."
+      ]
+    },
+    {
+      "id": "shadow_source",
+      "name_zh": "光源与阴影、自然孔隙投影",
+      "name_en": "Single-source shadows and natural aperture projections",
+      "includes": [
+        "Shadows and penumbrae from one dominant light source or directional sunlight.",
+        "Natural small apertures projecting the solar disk, including partial-eclipse illumination."
+      ],
+      "excludes": [
+        "Multiple independently positioned lights and colored multi-source shadows.",
+        "Transmission coloring, caustics, or indoor camera-obscura street images."
+      ],
+      "subphenomena": [
+        "directional_shadows",
+        "extended_source_penumbrae",
+        "curved_receivers",
+        "natural_solar_aperture_projection"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify the source, occluder and receiving surface sufficiently to support a visible shadow relationship.",
+        "An aperture projection is a bright source image, not necessarily the shape of the opening.",
+        "Do not infer metric shadow bearings from uncalibrated image pixels."
+      ]
+    },
+    {
+      "id": "shadow_transmission",
+      "name_zh": "透明、半透明物体投影",
+      "name_en": "Transmitted and translucent shadows",
+      "includes": [
+        "Material-dependent colored transmission and light attenuation on a receiving surface.",
+        "Diffused silhouettes through translucent materials."
+      ],
+      "excludes": [
+        "Colored shadows caused by blocking separate colored lamps.",
+        "Opaque painted color, defocus, and concentrated caustic light patterns."
+      ],
+      "subphenomena": [
+        "colored_transmission",
+        "translucent_attenuation",
+        "diffused_silhouettes",
+        "layered_transmission"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Describe the transmitting material, illumination and receiver; do not assign emitted light to a passive sheet."
+      ]
+    },
+    {
+      "id": "special_rainbow",
+      "name_zh": "过剩虹与雾虹",
+      "name_en": "Supernumerary rainbows and fogbows",
+      "includes": [
+        "Narrow supernumerary interference fringes associated with a rainbow.",
+        "Broad weakly colored bows formed by small fog droplets."
+      ],
+      "excludes": [
+        "Secondary bows, reflection bows, higher-order bows and compact glories."
+      ],
+      "subphenomena": [
+        "supernumerary_fringes",
+        "fogbow"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Describe a physically suitable droplet environment and viewing geometry.",
+        "Treat supernumerary fringes and fogbows as separate subphenomena rather than a generic rare-rainbow bucket."
+      ]
+    },
+    {
+      "id": "structural_color",
+      "name_zh": "天然结构色",
+      "name_en": "Natural structural coloration",
+      "includes": [
+        "Color and reflective appearance produced by natural biological or material microstructure."
+      ],
+      "excludes": [
+        "Painted coloration alone, colored spotlights, broad thin-film patches and periodic optical gratings as the main subject."
+      ],
+      "subphenomena": [
+        "feather_structural_color",
+        "insect_cuticle_color",
+        "butterfly_scale_color",
+        "nacre_structural_color"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Use a physically plausible species or material and ordinary illumination.",
+        "A single image may show spatial angle dependence but cannot prove temporal color change.",
+        "Retain the visible structure and material boundaries rather than replacing the subject with a luminous color overlay."
+      ]
+    },
+    {
+      "id": "surface_reflection",
+      "name_zh": "日常表面反射",
+      "name_en": "Surface reflection and roughness",
+      "includes": [
+        "Water, wet ground, glazing and material-dependent specular or rough-surface reflection.",
+        "Visible redirection of light by a reflecting surface."
+      ],
+      "excludes": [
+        "Explicit planar or curved mirror object imaging as the main effect.",
+        "Underwater objects seen by transmission, retroreflection, and focused patterns on a separate receiver."
+      ],
+      "subphenomena": [
+        "water_reflection",
+        "wet_surface_reflection",
+        "glossy_roughness",
+        "reflected_light_path"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Distinguish the reflected scene from a transmitted view and from a highlight.",
+        "Specify a source and a visible scattering medium when a light path itself must be visible."
+      ]
+    },
+    {
+      "id": "thin_film",
+      "name_zh": "薄膜干涉",
+      "name_en": "Thin-film interference",
+      "includes": [
+        "Interference color or intensity structure from thin films in reflection or transmission."
+      ],
+      "excludes": [
+        "Paint, colored illumination, ordinary colored reflections, grating spectra and prism dispersion."
+      ],
+      "subphenomena": [
+        "soap_film",
+        "oil_film",
+        "transparent_coating",
+        "film_thickness_structure"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify a physically plausible thin film and illumination/viewing context.",
+        "Keep optical patterns tied to the film extent; film shape alone does not establish interference."
+      ]
+    },
+    {
+      "id": "turbulence",
+      "name_zh": "光学湍流与视宁度",
+      "name_en": "Optical turbulence and seeing",
+      "includes": [
+        "Local image deformation or degradation caused by fluctuating air refractive index.",
+        "Photographable astronomical seeing or speckle structure when the capture conditions support it."
+      ],
+      "excludes": [
+        "Ordinary defocus, motion blur, stable lens distortion and claims of temporal scintillation from one isolated static star."
+      ],
+      "subphenomena": [
+        "near_ground_heat_distortion",
+        "exhaust_plume_distortion",
+        "thermal_gradient_distortion",
+        "single_exposure_seeing_structure"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Use spatial detail or reference edges that make atmospheric distortion observable.",
+        "A single image cannot demonstrate rapid temporal variation; do not request animation or multi-frame panels to evade the single-photograph format.",
+        "Keep layered mirage imaging distinct from random turbulent deformation."
+      ]
+    },
+    {
+      "id": "volumetric",
+      "name_zh": "体积光与云隙光",
+      "name_en": "Volumetric and crepuscular rays",
+      "includes": [
+        "Spatial light shafts, light sheets and volumetric shadows in scattering air or water."
+      ],
+      "excludes": [
+        "Only a bright patch on a solid surface, ice-crystal light pillars and camera diffraction spikes."
+      ],
+      "subphenomena": [
+        "aperture_light_shafts",
+        "cloud_gap_rays",
+        "anticrepuscular_rays",
+        "underwater_light_shafts",
+        "volumetric_shadows"
+      ],
+      "physical_constraints": [
+        "Use one physically possible camera view in a single real or documentary photograph; no diagrams, collages, or synthetic overlays.",
+        "Specify causal illumination, material, placement and viewing conditions; keep predicted optical answers out of the user prompt.",
+        "Specify a scattering medium and plausible source or occluding aperture.",
+        "Perspective convergence is not proof that physically parallel shafts meet at a nearby point."
+      ]
+    }
+  ]
+}

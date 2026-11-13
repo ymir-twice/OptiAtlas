@@ -1,0 +1,14 @@
+{
+  "native_shards_bytes": 192584152,
+  "tensor_count": 608,
+  "dtypes": [
+    "torch.float32"
+  ],
+  "export_round_trip_exact": true,
+  "all_tensors_match_historical_RL95_export": true,
+  "base_weights_loaded": false,
+  "gpu_used": false,
+  "validation_scope": "CPU reconstruction of existing trusted native RL95 adapter shards; no model inference or training",
+  "export_implementation_sha256": "10c414c41ac4982833d8fe328114af786d518571a37008f39480727ca39bd106",
+  "historical_export_weights_sha256": "0833c06b914a0f14c7b13025e9622dd72e42aead95683e5f2aa0653d722d9838"
+}

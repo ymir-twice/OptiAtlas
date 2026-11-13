@@ -1,0 +1,695 @@
+{
+  "version": "optical_quality_rules_37_v1",
+  "source_taxonomy": "data/prompts/agent_categories_v3_37.json",
+  "source_taxonomy_sha256": "ac19309f18e3231aa08c1837bcceebd8c530d3ef4bd5e151931ba5fb42eb8163",
+  "provenance": "Observable checks adapted from the training taxonomy physical constraints and public optics knowledge; no benchmark sample prompts, questions, answers, or scores. Specific conditional image laws checked against cited author/publisher, university and weather-service references. Reference URLs are audit metadata, not sent to the judge.",
+  "categories": {
+    "birefringence": {
+      "name": "Birefringence and transparent-material anisotropy",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Intensity or color patterns remain within the identified transparent stressed or anisotropic material."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Pattern appearance is compatible with the requested polarization and viewing arrangement; ordinary tint or reflection is not sufficient evidence."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Spatial variations respect the material boundaries and geometry; no universal straight or smooth stripe pattern is required."
+        }
+      ]
+    },
+    "caustics": {
+      "name": "Refractive and reflective caustics",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Concentrated bright curves, patches or networks appear on an identifiable receiving surface, not only as a surface glint."
+        },
+        {
+          "rule_id": "R2",
+          "text": "The light-shaping water, glass or curved reflector and receiving region have a plausible visible relationship."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Light concentration follows the shaping surface and receiver; arbitrary luminous painted patterns are not evidence."
+        }
+      ]
+    },
+    "corona": {
+      "name": "Light-source coronas",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The compact ring or glow is centered on the viewed Sun, Moon or lamp, rather than an observer shadow."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Ring appearance is compatible with the requested droplet-layer context and source position."
+        },
+        {
+          "rule_id": "R3",
+          "text": "The visible feature is distinguishable from lens ghosts, a large ice halo or an antisolar glory."
+        }
+      ]
+    },
+    "curved_mirrors": {
+      "name": "Curved mirror imaging",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Image content belongs to the visible curved reflective surface and corresponds to an identifiable source object or environment."
+        },
+        {
+          "rule_id": "R2",
+          "text": "For a real object in a convex spherical mirror, the image is upright and reduced; a concave mirror with the object inside its focal length gives an upright enlarged image, while a resolved real image is inverted. Judge scale only with adequate perspective references."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Occlusion, mirror boundaries and reflected views remain consistent with one camera viewpoint."
+        }
+      ]
+    },
+    "diffraction_spikes": {
+      "name": "Aperture diffraction spikes",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Spikes originate at compact bright source images, rather than appearing as detached physical light beams."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Spike arrangement is compatible with the specified aperture or obstruction where this is observable; do not infer an exact blade count without evidence."
+        },
+        {
+          "rule_id": "R3",
+          "text": "The effect remains an imaging artifact, distinguishable from volumetric shafts and displaced lens ghosts."
+        }
+      ]
+    },
+    "dispersion": {
+      "name": "Prism and wavelength dispersion",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Separated colors or wavelength-dependent deflection follow the specified transparent dispersive element."
+        },
+        {
+          "rule_id": "R2",
+          "text": "For ordinary glass under white light and normal dispersion, the exiting violet ray is deflected more from the incident direction than the red ray; evaluate only if paths and interfaces are identifiable, not by arbitrary screen-left/right ordering."
+        },
+        {
+          "rule_id": "R3",
+          "text": "The effect is distinguishable from painted color, grating orders and colored illumination."
+        }
+      ]
+    },
+    "focus_depth": {
+      "name": "Depth of field and defocus",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The intended focal subject and visible depth relationships support a coherent sharpness distribution."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Defocused regions show plausible blur or bokeh rather than a global motion smear or fog substitute."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Transitions and object boundaries remain compatible with the requested lens/focus arrangement; not every depth plane must be sharp."
+        }
+      ]
+    },
+    "geometric_distortion": {
+      "name": "Geometric lens distortion",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Reference lines or spatial structures visibly show the requested lens mapping."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Curvature or stretching follows a coherent image mapping rather than arbitrary local object deformation."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Perspective convergence and naturally curved objects are not treated as proof of lens distortion."
+        }
+      ]
+    },
+    "grating_diffraction": {
+      "name": "Grating diffraction",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Spectra, diffraction orders or spot patterns are associated with the identified periodic optical surface."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Visible order orientation, spacing and colors are compatible with the requested source and grating geometry where assessable."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Colors are not a uniform painted rainbow or a prism/thin-film substitute; limited visible orders are allowed."
+        }
+      ]
+    },
+    "horizon_sun": {
+      "name": "Horizon celestial refraction",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The requested disk deformation or color-rim feature occurs on the low-altitude celestial disk."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Visible disk structure is compatible with the horizon and atmospheric layering, rather than an unrelated lens ghost."
+        },
+        {
+          "rule_id": "R3",
+          "text": "An ordinary orange disk alone does not demonstrate the requested refractive effect; duration is not inferred from a still image."
+        }
+      ]
+    },
+    "ice_halos": {
+      "name": "Solar and lunar ice halos",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The ring or arc is geometrically related to the Sun or Moon, with a plausible ice-halo appearance."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Visible geometry and color ordering are consistent with the requested halo subtype where evidence permits."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Cloud gaps and partial field of view can interrupt the halo; a complete uniformly bright circle is not mandatory."
+        }
+      ]
+    },
+    "internal_reflection": {
+      "name": "Total internal reflection and Snell windows",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "For total internal reflection, light reaches the interface from higher to lower refractive index above the critical angle; when paths are observable there is reflected light inside, not a propagating transmitted ray into the lower-index medium."
+        },
+        {
+          "rule_id": "R2",
+          "text": "For underwater Snell-window scenes, the transmitted above-water view and reflected underwater regions remain distinguishable."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Guided/reflected paths or interface views are compatible with the stated geometry; a circular frame or ordinary air-side water reflection alone is insufficient."
+        }
+      ]
+    },
+    "lens_flare": {
+      "name": "Lens flare and ghosts",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Ghosts, stray patches or veiling glare are compatible with the strong-light direction relative to the camera."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Artifacts behave as image-plane lens effects rather than extra physical objects or emitted scene beams."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Their appearance is distinguishable from scene reflections, bokeh or diffraction spikes alone."
+        }
+      ]
+    },
+    "lens_virtual": {
+      "name": "Virtual lens imaging",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Objects seen through the lens correspond coherently to the surrounding real scene."
+        },
+        {
+          "rule_id": "R2",
+          "text": "For a real object, a diverging thin lens gives an upright reduced virtual image; a converging magnifier used inside its focal length gives an upright enlarged virtual image. Check scale only with adequate references, not equal screen-pixel distances."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Lens boundary transitions and occlusions are coherent; a projected real image is not substituted for the requested virtual view."
+        }
+      ]
+    },
+    "light_pillars": {
+      "name": "Light pillars",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Apparent vertical bands are visibly associated with the appropriate light sources and ice-crystal environment."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Pillar placement is compatible with reflection geometry rather than literal upward emitted laser columns."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Ordinary beams, aurora, sensor streaks or water reflections do not replace the requested atmospheric effect."
+        }
+      ]
+    },
+    "long_exposure": {
+      "name": "Long exposure, motion blur and flash trails",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Motion trails or blur follow a plausible continuous exposure and the requested relative camera/subject motion."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Stationary references and tracked subjects have a coherent sharpness relationship; stationary objects need not blur."
+        },
+        {
+          "rule_id": "R3",
+          "text": "When flash trails are requested, frozen detail and ambient trails are mutually consistent rather than pasted repeated subjects."
+        }
+      ]
+    },
+    "mie": {
+      "name": "Cloud and fog scattering",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Droplet-filled cloud or fog visibly interacts with illumination through glow, attenuation or scattering."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Depth-dependent visibility and contrast are compatible with the atmospheric path and scene lighting."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Defocus, white painted objects or arbitrary image blur do not replace the requested scattering phenomenon."
+        }
+      ]
+    },
+    "mirage": {
+      "name": "Inferior, superior and complex mirages",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The distant reference scene has the requested displaced, inverted or layered apparent image structure."
+        },
+        {
+          "rule_id": "R2",
+          "text": "The altered image is associated with a plausible atmospheric layer or near-horizon region."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Water reflections, ordinary haze and random heat shimmer are not substituted for the requested layered mirage."
+        }
+      ]
+    },
+    "multiple_mirrors": {
+      "name": "Multiple mirror reflection",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Successive reflected objects correspond consistently to the real objects and participating mirror surfaces."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Repeated views, orientations and occlusions are compatible with the visible mirror arrangement."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Image counts respect field of view and occlusion; no universal image-count formula is imposed without the required geometry."
+        }
+      ]
+    },
+    "natural_refraction": {
+      "name": "Refraction and apparent displacement",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The transparent-media boundary and a corresponding object or background make the refracted view identifiable."
+        },
+        {
+          "rule_id": "R2",
+          "text": "For an air-side near-normal view through a flat water surface, submerged detail appears shallower when depth references permit checking; visible rays bend toward the normal entering a higher-index medium and away leaving it. Curved vessels need their own geometry."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Corresponding object portions remain coherent across the interface; no universal inversion or magnification is imposed on all vessels."
+        }
+      ]
+    },
+    "optical_glory": {
+      "name": "Glories and Brocken spectres",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The cloud or mist phenomenon is associated with the antisolar direction, consistent with illumination behind the observer."
+        },
+        {
+          "rule_id": "R2",
+          "text": "If glory rings are requested, rings occur about the observer-related center; an ordinary shadow alone is insufficient."
+        },
+        {
+          "rule_id": "R3",
+          "text": "For a shadow-only Brocken request, the shadow lies on mist/cloud and is not incorrectly required to include colored rings."
+        }
+      ]
+    },
+    "parhelia": {
+      "name": "Parhelia and oriented ice-crystal arcs",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The requested bright patch or arc has a plausible relation to the Sun and requested oriented-ice-crystal subtype."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Visible arc curvature, location and colors are compatible with the subtype where the reference geometry is adequate."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Paired patches and equal brightness are not universally required; arbitrary colored clouds are insufficient evidence."
+        }
+      ]
+    },
+    "particle_scattering": {
+      "name": "Particle scattering and Tyndall effect",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The illuminated path is visibly present within an identifiable particle or colloidal medium."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Path visibility and medium boundaries are compatible with the stated source and suspension geometry."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Surface glints or visible apparatus without an illuminated scattering path do not satisfy the requested effect."
+        }
+      ]
+    },
+    "plane_mirror": {
+      "name": "Plane mirror imaging",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Reflected objects, identities and visible poses correspond coherently to the actual scene."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Mirror field of view, boundaries and occlusion are consistent with one camera viewpoint and mirror plane."
+        },
+        {
+          "rule_id": "R3",
+          "text": "For an ordinary plane mirror the virtual image is upright, with unchanged physical size and equal perpendicular object/image distances from the plane; apply only where scene references support it, never demand equal image-pixel sizes or naive screen-left/right reversal."
+        }
+      ]
+    },
+    "primary_rainbow": {
+      "name": "Primary rainbows",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "A plausible primary bow is visible in a rain or spray region with compatible source-observer geometry."
+        },
+        {
+          "rule_id": "R2",
+          "text": "When spectral bands are resolved, the primary bow has red on its outer edge and blue/violet on its inner edge; do not require all colors in a faint or red sunset bow."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Arc extent follows available droplets and field of view; partial bows and circular elevated views are allowed."
+        }
+      ]
+    },
+    "rayleigh": {
+      "name": "Rayleigh scattering and aerial perspective",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Sky color or aerial perspective is tied to atmospheric illumination or visible scene distance."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Color and contrast vary plausibly with atmospheric path and lighting context."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Blue pigment, arbitrary color grading and shallow-focus blur do not substitute for atmospheric scattering."
+        }
+      ]
+    },
+    "reflected_rainbows": {
+      "name": "Reflection, reflected and higher-order rainbows",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The visible rainbow subtype matches the requested mechanism: reflected illumination, a water-mirrored bow, or higher-order droplet scattering."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Bow position and orientation are compatible with the source, water plane when relevant, and droplet region."
+        },
+        {
+          "rule_id": "R3",
+          "text": "A generic reflected primary bow is not evidence of a higher-order bow; color/arc geometry must support the requested subtype when visible."
+        }
+      ]
+    },
+    "retroreflection": {
+      "name": "Retroreflection",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Bright return is localized to a plausible passive retroreflective material under near-observer illumination."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Material extent and visible brightness are coherent with the source/view relationship."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Self-emitting lamps, plain bright paint and unrelated specular highlights do not substitute for retroreflection."
+        }
+      ]
+    },
+    "secondary_rainbow": {
+      "name": "Secondary and double rainbows",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The requested secondary bow or double-bow structure is present in the appropriate droplet region."
+        },
+        {
+          "rule_id": "R2",
+          "text": "When both bows and colors are resolved, the secondary lies outside the primary around the same antisolar center, with red on its inner edge and blue/violet on its outer edge."
+        },
+        {
+          "rule_id": "R3",
+          "text": "The interbow region and relative visibility are plausible; fine supernumerary fringes or water reflections do not replace a secondary bow."
+        }
+      ]
+    },
+    "shadow_source": {
+      "name": "Single-source shadows and natural aperture projections",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Where source and receiver cues establish direction, an opaque object blocks light on the receiver behind it along incoming light paths; same-plane sun shadows share one directional illumination, allowing perspective convergence."
+        },
+        {
+          "rule_id": "R2",
+          "text": "For a resolved extended-source shadow, partially illuminated penumbra is lighter than fully blocked umbra when present; shadow softness must fit source angular extent and object-receiver separation. Do not demand a visible umbra in every geometry."
+        },
+        {
+          "rule_id": "R3",
+          "text": "For solar aperture projection, bright patches reproduce the resolved solar disk rather than necessarily the aperture shape; during a partial eclipse they show the appropriate obscured disk."
+        },
+        {
+          "rule_id": "R4",
+          "text": "For repeated eclipse aperture projections on the same plane under the same illumination, the resolved solar silhouettes have consistent obscuration orientation, allowing perspective and aperture blur."
+        }
+      ]
+    },
+    "shadow_transmission": {
+      "name": "Transmitted and translucent shadows",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Transmitted or attenuated light is visibly related to the transparent/translucent object and receiver."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Color, silhouette and diffusion are plausible for the stated material and illumination."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Passive material is not treated as an independent emitter, and colored multi-source shadows or caustic patterns do not replace transmission."
+        }
+      ]
+    },
+    "special_rainbow": {
+      "name": "Supernumerary rainbows and fogbows",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The requested subtype is visible: fine supernumerary fringes or a broad weakly colored fogbow."
+        },
+        {
+          "rule_id": "R2",
+          "text": "The feature is related coherently to the rainbow direction, droplet region and source-observer arrangement."
+        },
+        {
+          "rule_id": "R3",
+          "text": "A secondary bow, reflection bow or compact glory does not substitute for the requested subtype."
+        }
+      ]
+    },
+    "structural_color": {
+      "name": "Natural structural coloration",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Color appearance is localized to the plausible biological/material microstructure and respects its boundaries."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Spatial angle-dependent or reflective color is compatible with the material and ordinary illumination."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Paint or luminous overlays do not replace the structure; temporal color change cannot be established from one still image."
+        }
+      ]
+    },
+    "surface_reflection": {
+      "name": "Surface reflection and roughness",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "The reflected scene or highlight is associated with an identifiable reflecting surface."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Reflection placement, roughness-dependent spread and distortion are coherent with the surface and viewpoint."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Transmitted underwater content, focused caustics and unrelated bright patches do not replace the requested surface reflection."
+        }
+      ]
+    },
+    "thin_film": {
+      "name": "Thin-film interference",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Interference color or intensity patterns are localized to the identified thin-film region."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Pattern variations are compatible with the film geometry, thickness variation and illumination where observable."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Printed rainbows, colored lamps and unrelated reflected scenery do not substitute for film interference."
+        }
+      ]
+    },
+    "turbulence": {
+      "name": "Optical turbulence and seeing",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Local deformation or degradation is visible against reference edges or spatial detail through the affected air path."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Distortion is compatible with the thermal/exhaust context rather than uniform lens mapping or simple defocus."
+        },
+        {
+          "rule_id": "R3",
+          "text": "A single image is not claimed to prove temporal flicker; stable layered mirages are distinguished from irregular turbulence."
+        }
+      ]
+    },
+    "volumetric": {
+      "name": "Volumetric and crepuscular rays",
+      "rules": [
+        {
+          "rule_id": "R1",
+          "text": "Light shafts or volume shadows are visibly supported by scattering air or water."
+        },
+        {
+          "rule_id": "R2",
+          "text": "Their position and occlusion are coherent with the source and gaps/obstacles."
+        },
+        {
+          "rule_id": "R3",
+          "text": "Perspective convergence is compatible with viewing geometry; surface-only patches or lens spikes do not substitute for volume illumination."
+        }
+      ]
+    }
+  },
+  "physical_rule_references": [
+    {
+      "url": "https://www.weather.gov/fgz/Rainbow",
+      "supports": [
+        "primary_rainbow",
+        "secondary_rainbow"
+      ],
+      "note": "NOAA/NWS explanation of rainbow formation and relative color ordering."
+    },
+    {
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/2-2-spherical-mirrors",
+      "supports": [
+        "curved_mirrors",
+        "plane_mirror"
+      ],
+      "note": "Author-published textbook on mirror imaging; apparent pixel scale still requires scene geometry."
+    },
+    {
+      "url": "https://openstax.org/books/college-physics/pages/25-5-dispersion-the-rainbow-and-prisms",
+      "supports": [
+        "dispersion"
+      ],
+      "note": "Normal optical dispersion for common transparent media."
+    },
+    {
+      "url": "https://lecdem.physics.umd.edu/e/e2/1525-e2-23.html",
+      "supports": [
+        "shadow_source"
+      ],
+      "note": "University of Maryland extended-source shadow demonstration, umbra and penumbra."
+    },
+    {
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/2-3-images-formed-by-refraction",
+      "supports": [
+        "natural_refraction"
+      ],
+      "note": "Flat-interface apparent depth; restrictions on viewing geometry retained."
+    },
+    {
+      "url": "https://openstax.org/books/physics/pages/16-2-refraction",
+      "supports": [
+        "natural_refraction",
+        "internal_reflection"
+      ],
+      "note": "Refraction and critical-angle conditions."
+    },
+    {
+      "url": "https://openstax.org/books/university-physics-volume-3/pages/2-4-thin-lenses",
+      "supports": [
+        "lens_virtual"
+      ],
+      "note": "Thin-lens image orientation and magnification under stated object placement."
+    }
+  ]
+}

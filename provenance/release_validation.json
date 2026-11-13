@@ -1,0 +1,45 @@
+{
+  "offline_unit_tests": {
+    "passed": 18,
+    "failed": 0
+  },
+  "source_validation": {
+    "all_python_ASTs_parse": true,
+    "all_selected_configs_resolve": true,
+    "core_CPU_imports_pass": true,
+    "upstream_DiffusionOPSD_files_verified": 33
+  },
+  "published_sft_admission": {
+    "status": "passed",
+    "accepted_trajectories": 3063,
+    "decision_samples": 6695,
+    "train": 6586,
+    "validation": 109,
+    "rejected": 0,
+    "native_runner_imported_after_release_boundary": true,
+    "gpu_training_executed": false
+  },
+  "published_generator_preparation": {
+    "status": "passed",
+    "generator_records": 13866,
+    "published_manifest_hash_verified": true,
+    "absolute_image_paths": true,
+    "caption_values_preserved": true,
+    "image_tensors_loaded": false
+  },
+  "strict_caption_views": {
+    "ordered_records_per_view": 13866,
+    "ordered_ID_caption_mismatches": {
+      "dense": 0,
+      "agent": 0
+    }
+  },
+  "not_executed": [
+    "fresh environment installation",
+    "GPU inference",
+    "GPU training",
+    "A100 validation",
+    "real API scoring",
+    "end-to-end benchmark"
+  ]
+}
