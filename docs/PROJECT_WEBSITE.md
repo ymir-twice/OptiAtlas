@@ -33,7 +33,30 @@ Extract the ZIP and open its `index.html`, or serve that extracted directory.
 The ZIP contains only webpage assets, not the repository's training code, private
 data, checkpoints, or credentials. The original demo video remains unmodified.
 
-## Enable GitHub Pages when ready to publish
+## Publish the approved public webpage from its dedicated branch
+
+The owner approved public access to the project presentation on 2026-11-13.
+The research-code, dataset and model repositories remain private. The dedicated
+`gh-pages` branch contains only the files from `site/`, with `index.html` at its root.
+
+The simplest one-time owner setup is:
+
+1. Open [Settings → Pages](https://github.com/ymir-twice/OptiAtlas/settings/pages).
+2. Set **Source → Deploy from a branch**.
+3. Select **Branch → gh-pages**, folder **/ (root)**, then **Save**.
+
+GitHub builds that branch and shows the live URL after deployment. Only the webpage
+files become publicly accessible. The supplied SSH deploy key can update branches,
+but it cannot enable the Pages setting. Public access to this presentation is already
+authorized; no repeat audience confirmation is needed.
+
+A private repository still requires a GitHub plan supporting private-repository
+Pages. If Settings asks for an upgrade, do not change the research repository to
+public. A separate public website-only repository is an alternative, requiring
+owner setup. The GitHub Actions workflow below is another supported deployment
+path; use one publishing source at a time.
+
+## Alternative: publish with GitHub Actions
 
 GitHub Pages is normally public even when the source repository is private.
 The private repository and Hugging Face artifacts can remain private; files
