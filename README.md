@@ -3,13 +3,14 @@
 **Optical reasoning for image generation.** A benchmark, traceable training data,
 and an agent that turns scene requests into physically informed drawing prompts.
 
-**Private migration preview.** Repositories and page sources remain private; the
-project website has not been deployed. No paper acceptance or public release is implied.
+**[Project website](https://ymir-twice.github.io/OptiAtlas/)** is live, including the demo video and visual comparisons.
+Source code, datasets, and model weights remain in private repositories. Public access
+to the presentation does not make those research artifacts public.
 
 [Dataset](https://huggingface.co/datasets/hopeymir/OptiAtlas) ·
 [Policy + Generator](https://huggingface.co/hopeymir/OptiAtlas-Agent) ·
 [Core migration archive](https://huggingface.co/datasets/hopeymir/CVPR2027) ·
-[Project website source](site/index.html) · [GitHub Pages setup](docs/PROJECT_WEBSITE.md)
+[Live project website](https://ymir-twice.github.io/OptiAtlas/) · [GitHub Pages setup](docs/PROJECT_WEBSITE.md)
 
 [▶ Watch the 60-second project video](site/assets/LightOmni_Six_Cases_60s.mp4)
 

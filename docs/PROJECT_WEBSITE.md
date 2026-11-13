@@ -4,12 +4,13 @@ The standalone project webpage is in `site/`. It is a real static website with
 the author-provided demo video, visual comparisons, method description, and
 benchmark results. It needs no Node.js, build service, analytics, or API key.
 
-Its intended GitHub Pages address is:
+Its verified live GitHub Pages address is:
 
 **https://ymir-twice.github.io/OptiAtlas/**
 
-This address becomes live only after GitHub Pages is enabled and a deployment
-succeeds. Committing the files, or viewing the README, does not publish it.
+Deployment from `gh-pages / (root)` was verified on 2026-11-13. The page, original
+video, styles, script, score JSON and all displayed images returned HTTP 200 and
+matched the validated local files. Code, data and weight repositories remain private.
 
 ## Preview without publishing
 
