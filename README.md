@@ -9,7 +9,7 @@ project website has not been deployed. No paper acceptance or public release is 
 [Dataset](https://huggingface.co/datasets/hopeymir/OptiAtlas) ·
 [Policy + Generator](https://huggingface.co/hopeymir/OptiAtlas-Agent) ·
 [Core migration archive](https://huggingface.co/datasets/hopeymir/CVPR2027) ·
-[Local project page](site/index.html)
+[Project website source](site/index.html) · [GitHub Pages setup](docs/PROJECT_WEBSITE.md)
 
 [▶ Watch the 60-second project video](site/assets/LightOmni_Six_Cases_60s.mp4)
 

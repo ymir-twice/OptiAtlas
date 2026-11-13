@@ -1,0 +1,47 @@
+name: Publish OptiAtlas project website
+
+# Deliberately manual: pushing private research code must not publish a website.
+on:
+  workflow_dispatch:
+    inputs:
+      public_website:
+        description: "Publish the site/ project webpage for public internet access"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: optiatlas-project-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ inputs.public_website && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the selected main revision
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Validate the standalone project webpage
+        run: python3 scripts/package_project_site.py --check
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload only the project website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - name: Publish project website
+        id: deployment
+        uses: actions/deploy-pages@v4
