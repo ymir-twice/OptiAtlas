@@ -28,6 +28,17 @@
       "pass_rate": 0.7974051896207585
     },
     {
+      "id": "gpt_image_2",
+      "label": "GPT-Image-2",
+      "A": 765,
+      "B": 218,
+      "C": 19,
+      "precision": 0.7782299084435402,
+      "recall": 0.9810379241516967,
+      "pass_rate": 0.7634730538922155,
+      "provenance": "gpt-image-2-evaluation.json"
+    },
+    {
       "id": "seedream",
       "label": "Seedream 5.0 Pro",
       "A": 750,

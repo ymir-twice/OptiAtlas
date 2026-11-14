@@ -1,0 +1,58 @@
+{
+  "model": "GPT-Image-2",
+  "benchmark": "Light-Omni-v6.1 / OptiAtlas-Bench",
+  "images": 457,
+  "questions": 1002,
+  "categories": 37,
+  "main_table_run": "gpt_image_2_gemini_cloud_single_20261112",
+  "judge": "google/gemini-3.6-flash",
+  "provider": "WaveSpeed",
+  "temperature": 0,
+  "max_tokens": 4096,
+  "images_per_call": 1,
+  "questions_per_call": 1,
+  "main_table_counts": {
+    "A": 765,
+    "B": 218,
+    "C": 19
+  },
+  "metrics": {
+    "precision": 0.7782299084435402,
+    "recall": 0.9810379241516967,
+    "pass_rate": 0.7634730538922155
+  },
+  "protocol_validation": "All 1,002 accepted requests match the existing table benchmark, semantic mapping, system instructions, per-question rubric and prompt suffix.",
+  "image_transport_note": "One question (v5x2_shadow_source_01_q1) used the same source image URL after an HTTP 413; the other 1,001 requests embedded original image bytes.",
+  "separate_historical_run": {
+    "run": "gemini_20261028",
+    "questions_per_call": "all questions for each image",
+    "A": 784,
+    "B": 202,
+    "C": 16,
+    "precision": 0.795131845841785,
+    "judgability": 0.9840319361277445,
+    "overall_pass": 0.782435129740519,
+    "note": "Different invocation protocol; not the GPT row shown in the main table."
+  },
+  "source_package": "gpt-image-2-evaluations-v6.1-20261113.tar.gz",
+  "case_images": {
+    "pinhole_05": {
+      "asset": "assets/pinhole_05__gpt_image_2.png",
+      "sha256": "4d3062018a63dcc03f7ce39121987331bc47bfa94c11374866c013bbab713522",
+      "criteria_passed": "3/3"
+    },
+    "multiple_mirrors_06": {
+      "asset": "assets/multiple_mirrors_06__gpt_image_2.png",
+      "sha256": "e4e566ffa5f1b33bab759133e47ea51b8194425a42f2c4d8acc5b6ec0ae0820c",
+      "criteria_passed": "3/3"
+    },
+    "rayleigh_09": {
+      "asset": "assets/rayleigh_09__gpt_image_2.png",
+      "sha256": "68e85b202debc8f3e2af1fac92899ada200877057867a8356c9928a17b1b840d",
+      "criteria_passed": "1/2"
+    }
+  },
+  "source_archive_sha256": "4078cbcfc56da94d39ba13b58d447416b842ac0f39f7dbd9ec80e2d04db17312",
+  "benchmark_sha256": "948d811acd3ef7defb0b91de622aeff2e6d930e23620b1e7d59cfd15087f12ad",
+  "judge_instructions_sha256": "46edc0fa860c0ce9941d55d4098b54f367b546a816967b9b3faf15cc8377badb"
+}
