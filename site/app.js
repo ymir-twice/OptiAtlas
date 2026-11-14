@@ -46,6 +46,7 @@ if (dialog && typeof dialog.showModal === 'function') {
       const article = button.closest('.case');
       dialog.querySelector('#dialog-title').textContent = article.querySelector('h3').textContent;
       const target = dialog.querySelector('.dialog-images');
+      target.classList.toggle('has-three', article.querySelectorAll('.comparison figure').length === 3);
       target.replaceChildren();
       article.querySelectorAll('.comparison figure').forEach((figure) => {
         const copy = document.createElement('figure');

@@ -45,6 +45,7 @@ A = correct, B = incorrect, C = cannot determine.
 |---|---:|---:|---:|
 | Nano Banana 2.1 | 86.50 | 98.30 | 85.03 |
 | OptiAtlas-Agent | 80.54 | 99.00 | 79.74 |
+| GPT-Image-2 | 77.82 | 98.10 | 76.35 |
 | Seedream 5.0 Pro | 75.76 | 98.80 | 74.85 |
 | Qwen-Image 3.0 | 57.51 | 97.70 | 56.19 |
 | FLUX.2-dev | 53.96 | 98.20 | 52.99 |
@@ -55,6 +56,9 @@ A = correct, B = incorrect, C = cannot determine.
 | Z-Image Turbo | 41.24 | 96.31 | 39.72 |
 
 This is the selected single-run comparison under the Gemini-3.6-Flash judge.
+GPT-Image-2 uses the matching single-question evaluation (765 A / 218 B / 19 C);
+its historical 79.51% multi-question score is a separate protocol. See
+[GPT evaluation provenance](site/gpt-image-2-evaluation.json).
 The final system's three recorded generation runs are **80.54 / 79.43 / 78.08%**
 Precision (mean from raw counts **79.35256%**, sample SD **1.23220 percentage points**).
 Single-run improvements must not be described as the repeated mean or as proof
